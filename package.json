@@ -1,0 +1,34 @@
+{
+  "name": "paradox-perfume",
+  "version": "1.0.0",
+  "description": "Luxury perfume e-commerce website - Unlock Your Signature Scent",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "dev": "npx http-server -p 8000 -o -c-1",
+    "format": "npx prettier --write \"**/*.{html,css,js,json,md}\"",
+    "format:check": "npx prettier --check \"**/*.{html,css,js,json,md}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rianne-nd/Paradox-perfume.git"
+  },
+  "keywords": [
+    "perfume",
+    "e-commerce",
+    "fragrance",
+    "luxury",
+    "website",
+    "static-site"
+  ],
+  "author": "Paradox Manila",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rianne-nd/Paradox-perfume/issues"
+  },
+  "homepage": "https://rianne-nd.github.io/Paradox-perfume/",
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

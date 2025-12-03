@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: ❓ Question or Discussion
+    url: https://github.com/rianne-nd/Paradox-perfume/discussions
+    about: Ask questions or discuss ideas with the community
+  - name: 🔒 Security Issue
+    url: https://github.com/rianne-nd/Paradox-perfume/security/advisories/new
+    about: Report a security vulnerability (private)
