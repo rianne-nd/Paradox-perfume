@@ -240,9 +240,23 @@
                     </div>
                 </div>
             </section>
+
+            <!-- FRUITY SECTION (Sage Solid -> Blend to Green at bottom) -->
+            <section class="py-20 px-6 lg:px-12" style="background: linear-gradient(180deg, #F1F8E9 0%, #F1F8E9 90%, #E8F5E9 100%);">
+                <div class="max-w-7xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h3 class="text-2xl lg:text-3xl font-serif uppercase tracking-widest text-dark-text mb-2">Fruity & Unique Scents — The Juicy Botanicals</h3>
+                        <p class="text-gray-500 italic font-serif">Fresh, lively scents with crisp fruits, honeyed sweetness, and playful charm.</p>
+                    </div>
+                    <!-- 2 Column Grid -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-4xl mx-auto" id="featured-fruity">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+            </section>
             
-            <!-- AROMATIC / POWER SECTION (Sage Solid -> Blend to Blue at bottom) -->
-            <section class="py-20 px-6 lg:px-12" style="background: linear-gradient(180deg, #F1F8E9 0%, #F1F8E9 90%, #E0F7FA 100%);">
+            <!-- AROMATIC / POWER SECTION (Green Solid -> Blend to Blue at bottom) -->
+            <section class="py-20 px-6 lg:px-12" style="background: linear-gradient(180deg, #E8F5E9 0%, #E8F5E9 90%, #E0F7FA 100%);">
                 <div class="max-w-7xl mx-auto">
                     <div class="text-center mb-16">
                         <h3 class="text-2xl lg:text-3xl font-serif uppercase tracking-widest text-dark-text mb-2">Aromatic / Sweet Boldness</h3>
@@ -318,6 +332,7 @@
                 <button class="tab-btn active px-6 py-2 rounded-full border border-dark-text bg-dark-text text-white transition-all" onclick="filterProducts('all')">All Scents</button>
                 <button class="tab-btn px-6 py-2 rounded-full border border-gray-300 hover:border-dusty-rose hover:text-dusty-rose transition-all" onclick="filterProducts('floral')">Floral</button>
                 <button class="tab-btn px-6 py-2 rounded-full border border-gray-300 hover:border-yellow-500 hover:text-yellow-600 transition-all" onclick="filterProducts('citrus')">Citrus</button>
+                <button class="tab-btn px-6 py-2 rounded-full border border-gray-300 hover:border-green-500 hover:text-green-600 transition-all" onclick="filterProducts('fruity')">Fruity</button>
                 <button class="tab-btn px-6 py-2 rounded-full border border-gray-300 hover:border-sky-blue hover:text-sky-600 transition-all" onclick="filterProducts('aquatic')">Aquatic</button>
                 <button class="tab-btn px-6 py-2 rounded-full border border-gray-300 hover:border-gray-800 hover:text-gray-800 transition-all" onclick="filterProducts('power')">Power</button>
             </div>
@@ -612,6 +627,10 @@
         { id: 6, name: "Happy (Men & Women)", collection: "citrus", price: 150, description: "Pure joy in a bottle. A hint of citrus, a wealth of flowers.", image: "Images/CITRUS COLLECTION — THE SUNLIT ESSENCE/Happy (Men & Women).png" },
         { id: 7, name: "Cold", collection: "citrus", price: 150, description: "Crisp, cooling citrus. Refreshing and energizing.", image: "Images/CITRUS COLLECTION — THE SUNLIT ESSENCE/Cold.png" },
 
+        // Fruity & Unique Scents
+        { id: 13, name: "English Pear & Freesia", collection: "fruity", price: 150, description: "Crisp, elegant fruit paired with subtle floral notes. (Inspired by Jo Malone)", image: "Images/FRUITY & UNIQUE SCENTS — THE JUICY BOTANICALS/English Pear & Freesia.png" },
+        { id: 14, name: "Nectarine Blossom & Honey", collection: "fruity", price: 150, description: "Juicy, luscious sweetness and honeyed delight. (Inspired by Jo Malone)", image: "Images/FRUITY & UNIQUE SCENTS — THE JUICY BOTANICALS/Nectarine Blossom & Honey.png" },
+
         // Ocean Air (Aquatic)
         { id: 8, name: "Cool Water", collection: "aquatic", price: 150, description: "The essence of ocean freshness. Crisp, clean, and refreshing.", image: "Images/FRESH & AQUATIC COLLECTION — THE OCEAN AIR/Cool Water (Men & Women).png.png" },
         { id: 9, name: "Aqva Pour Homme", collection: "aquatic", price: 150, description: "Noble and masculine, evoking the power and beauty of the sea.", image: "Images/FRESH & AQUATIC COLLECTION — THE OCEAN AIR/Aqva Pour Homme.png" },
@@ -680,6 +699,7 @@
 
         renderCards(products.filter(p => p.collection === 'floral'), 'featured-floral');
         renderCards(products.filter(p => p.collection === 'citrus'), 'featured-citrus');
+        renderCards(products.filter(p => p.collection === 'fruity'), 'featured-fruity');
         renderCards(products.filter(p => p.collection === 'power'), 'featured-power');
         renderCards(products.filter(p => p.collection === 'aquatic'), 'featured-aquatic');
     }
