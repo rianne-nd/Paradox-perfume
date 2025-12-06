@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Paradox Manila</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <div class="container-fluid px-lg-5">
+        <a class="navbar-brand font-serif fw-bold fs-3 text-dark-text" href="index.html">
+            Paradox <span class="fw-normal fst-italic fs-4">Manila</span>
+        </a>
+        
+        <div class="d-flex align-items-center gap-3 order-lg-3">
+            <!-- Cart Button (Optional on checkout, but good for consistency) -->
+            <a href="collections.html" class="btn btn-link text-dark-text p-2">
+                <span class="material-symbols-outlined fs-3">shopping_bag</span>
+            </a>
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="material-symbols-outlined fs-2">menu</span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav gap-4">
+                <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Scent Finder</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="container py-5 mt-5">
+    <div class="text-center mb-5 mt-4">
+        <h1 class="display-4 font-serif text-dark-text">Checkout</h1>
+        <p class="text-secondary">Complete your purchase</p>
+    </div>
+
+    <!-- Instructions Section -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-lg-8">
+            <div class="p-4 rounded border" style="background-color: var(--color-cream-bg); border-color: var(--color-champagne-dark) !important;">
+                <p class="h5 mb-3 text-dark-text font-serif">We process orders personally via Facebook Messenger to ensure your details are correct.</p>
+                <p class="fw-bold mb-2">How it works:</p>
+                <ol class="text-secondary mb-0 ps-3">
+                    <li class="mb-1">Fill in your delivery details below.</li>
+                    <li class="mb-1">Click the button to automatically copy your order summary.</li>
+                    <li>Paste the message in the Messenger chat to finalize!</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-5">
+        <!-- Left Column: Shipping Form -->
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body p-4">
+                    <h2 class="h4 font-serif mb-4 pb-2 border-bottom">Shipping Address</h2>
+                    <form id="checkout-form">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="first-name" class="form-label small text-secondary">First Name</label>
+                                <input type="text" class="form-control" id="first-name" required>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="last-name" class="form-label small text-secondary">Last Name</label>
+                                <input type="text" class="form-control" id="last-name" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="address" class="form-label small text-secondary">Address</label>
+                                <input type="text" class="form-control" id="address" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="apartment" class="form-label small text-secondary">Apartment, suite, etc. (optional)</label>
+                                <input type="text" class="form-control" id="apartment">
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="city" class="form-label small text-secondary">City</label>
+                                <input type="text" class="form-control bg-light" id="city" value="Manila" readonly>
+                                <div class="form-text text-danger small">* We only ship within Manila</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label for="zip" class="form-label small text-secondary">ZIP Code</label>
+                                <input type="text" class="form-control" id="zip" required>
+                            </div>
+                        </div>
+                    </form>
+
+                    <h2 class="h4 font-serif mb-4 mt-5 pb-2 border-bottom">Finalize Order</h2>
+                    <div class="mb-3">
+                        <label for="order-details" class="form-label small text-secondary">Message Preview (Auto-generated)</label>
+                        <textarea class="form-control bg-light font-monospace small" id="order-details" rows="10" readonly></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column: Order Summary -->
+        <div class="col-lg-5">
+            <div class="card border-0 shadow-sm position-sticky" style="top: 100px;">
+                <div class="card-body p-4">
+                    <h2 class="h4 font-serif mb-4 pb-2 border-bottom">Order Summary</h2>
+                    
+                    <div id="order-summary-items" class="vstack gap-3 mb-4">
+                        <!-- Items injected via JS -->
+                    </div>
+
+                    <div class="border-top pt-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-secondary">Subtotal</span>
+                            <span class="fw-bold" id="summary-subtotal">₱0.00</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-secondary">Shipping</span>
+                            <span class="text-muted small">Calculated via Lalamove/Grab</span>
+                        </div>
+                        <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top">
+                            <span class="h5 font-serif mb-0">Total (excluding shipping)</span>
+                            <span class="h4 fw-bold mb-0 text-dark-text" id="summary-total">₱0.00</span>
+                        </div>
+                    </div>
+
+                    <button onclick="copyAndRedirect()" class="btn btn-custom-dark w-100 mt-4 py-3 fs-5">
+                        Complete Purchase
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer class="bg-light border-top pt-5 pb-4 mt-5">
+    <div class="container">
+        <div class="row gy-5 mb-5">
+            <div class="col-lg-4">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <div class="rounded-circle border border-secondary d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">P</div>
+                    <span class="h5 font-serif text-dark-text mb-0">Paradox Manila</span>
+                </div>
+                <p class="text-secondary small mb-4" style="max-width: 300px;">
+                    Crafting accessible luxury through scents that inspire, comfort, and define you.
+                </p>
+            </div>
+            <div class="col-lg-2 offset-lg-2">
+                <h4 class="font-serif h6 mb-3 text-dark-text">Shop</h4>
+                <ul class="list-unstyled small text-secondary">
+                    <li class="mb-2"><a href="collections.html" class="text-decoration-none text-secondary">All Perfumes</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <h4 class="font-serif h6 mb-3 text-dark-text">Company</h4>
+                <ul class="list-unstyled small text-secondary">
+                    <li class="mb-2"><a href="index.html#about" class="text-decoration-none text-secondary">About Us</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <h4 class="font-serif h6 mb-3 text-dark-text">Help</h4>
+                <ul class="list-unstyled small text-secondary">
+                    <li class="mb-2"><a href="faq.html" class="text-decoration-none text-secondary">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-top pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center small text-muted">
+            <div class="mb-2 mb-md-0">Tondo, Manila</div>
+            <div>&copy; 2025 Paradox MNL. All Rights Reserved.</div>
+        </div>
+    </div>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        loadCart();
+        
+        // Add event listeners to update text when inputs change
+        const inputs = document.querySelectorAll('#checkout-form input');
+        inputs.forEach(input => {
+            input.addEventListener('input', updateOrderText);
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    });
+
+    let cart = [];
+    // Shipping fee removed as requested
+    const SHIPPING_FEE = 0; 
+
+    function loadCart() {
+        const storedCart = localStorage.getItem('paradoxCart');
+        if (storedCart) {
+            cart = JSON.parse(storedCart);
+        }
+        renderOrderSummary();
+        updateOrderText();
+    }
+
+    function renderOrderSummary() {
+        const container = document.getElementById('order-summary-items');
+        const subtotalEl = document.getElementById('summary-subtotal');
+        const totalEl = document.getElementById('summary-total');
+        
+        container.innerHTML = '';
+        
+        let subtotal = 0;
+
+        if (cart.length === 0) {
+            container.innerHTML = '<p class="text-muted text-center">Your bag is empty.</p>';
+        } else {
+            cart.forEach(item => {
+                const itemTotal = item.price * item.qty;
+                subtotal += itemTotal;
+
+                container.innerHTML += `
+                    <div class="d-flex gap-3 align-items-center">
+                        <div class="position-relative">
+                            <img src="${item.image}" alt="${item.name}" class="rounded object-fit-cover" style="width: 60px; height: 60px;">
+                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dusty-rose">
+                                ${item.qty}
+                            </span>
+                        </div>
+                        <div class="flex-grow-1">
+                            <h6 class="mb-0 font-serif text-dark-text small fw-bold">${item.name}</h6>
+                            <small class="text-secondary">Eau de Parfum</small>
+                        </div>
+                        <div class="fw-bold text-dark-text">₱${itemTotal.toFixed(2)}</div>
+                    </div>
+                `;
+            });
+        }
+
+        subtotalEl.innerText = `₱${subtotal.toFixed(2)}`;
+        totalEl.innerText = `₱${(subtotal + SHIPPING_FEE).toFixed(2)}`;
+    }
+
+    function updateOrderText() {
+        const firstName = document.getElementById('first-name').value || '[First Name]';
+        const lastName = document.getElementById('last-name').value || '[Last Name]';
+        const address = document.getElementById('address').value || '[Address]';
+        const apartment = document.getElementById('apartment').value;
+        const city = "Manila";
+        const zip = document.getElementById('zip').value || '[ZIP Code]';
+        
+        let subtotal = 0;
+        let itemsText = cart.map(item => {
+            subtotal += item.price * item.qty;
+            return `- ${item.qty}x ${item.name} - ₱${(item.price * item.qty).toFixed(2)}`;
+        }).join('\n');
+        
+        const total = subtotal + SHIPPING_FEE;
+
+        const text = `Order Details:
+${itemsText}
+---
+Total (excluding shipping): ₱${total.toFixed(2)}
+Shipping: Calculated via Lalamove/Grab
+---
+Shipping Information:
+${firstName} ${lastName}
+${address}
+${apartment ? apartment + '\n' : ''}${city}, ${zip}
+Philippines`;
+
+        document.getElementById('order-details').value = text;
+    }
+
+    function copyAndRedirect() {
+        if (cart.length === 0) {
+            alert("Your bag is empty!");
+            return;
+        }
+
+        const textArea = document.getElementById('order-details');
+        textArea.select();
+        textArea.setSelectionRange(0, 99999); // For mobile devices
+
+        const redirect = () => {
+            alert("Order details copied to clipboard! Redirecting to Messenger...");
+            window.open('https://m.me/paradoxmanila', '_blank');
+        };
+
+        try {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(textArea.value).then(redirect).catch(() => {
+                    // Fallback if promise fails
+                    document.execCommand('copy');
+                    redirect();
+                });
+            } else {
+                document.execCommand('copy');
+                redirect();
+            }
+        } catch (err) {
+            console.error('Failed to copy', err);
+            redirect(); // Try to redirect anyway
+        }
+    }
+</script>
+</body>
+</html>

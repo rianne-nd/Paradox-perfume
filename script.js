@@ -182,25 +182,27 @@ function updateCartUI() {
     const container = document.getElementById('cart-items');
     const countBadge = document.getElementById('cart-count');
     const totalEl = document.getElementById('cart-total');
-    const emptyMsg = document.getElementById('empty-cart-msg');
-
-    if (!container || !countBadge || !totalEl || !emptyMsg) return;
 
     const totalQty = cart.reduce((acc, item) => acc + item.qty, 0);
-    countBadge.innerText = totalQty;
-    countBadge.classList.toggle('show', totalQty > 0);
+    
+    if (countBadge) {
+        countBadge.innerText = totalQty;
+        countBadge.classList.toggle('show', totalQty > 0);
+    }
+
+    if (!container || !totalEl) return;
 
     if (cart.length === 0) {
-        container.innerHTML = '';
-        container.appendChild(emptyMsg);
-        emptyMsg.classList.remove('d-none');
-        emptyMsg.classList.add('d-flex');
+        container.innerHTML = `
+            <div class="d-flex flex-column align-items-center justify-content-center h-100 text-muted" id="empty-cart-msg">
+                <span class="material-symbols-outlined fs-1 mb-3">shopping_bag</span>
+                <p>Your bag is empty.</p>
+                <button class="btn btn-link text-dusty-rose fw-bold text-decoration-none" data-bs-dismiss="offcanvas" onclick="window.location.href='collections.html'">Start Shopping</button>
+            </div>
+        `;
         totalEl.innerText = '₱0.00';
         return;
     }
-
-    emptyMsg.classList.add('d-none');
-    emptyMsg.classList.remove('d-flex');
     
     container.innerHTML = cart.map(item => `
         <div class="d-flex gap-3 align-items-center mb-3">
