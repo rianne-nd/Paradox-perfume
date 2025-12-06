@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paradox Manila | Unlock Your Signature Scent</title>
+    <title>Paradox Manila | Collections</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -41,7 +41,7 @@
 
         <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav gap-4">
-                <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
+                <li class="nav-item"><a class="nav-link text-gold-accent" href="collections.html">Collections</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
                 <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" onclick="startQuiz(); return false;">Scent Finder</a></li>
@@ -53,139 +53,25 @@
 <!-- Main Content Area -->
 <main id="main-content">
     
-    <!-- HOME PAGE VIEW -->
-    <div id="home-view">
-        <!-- Hero Section -->
-        <header class="hero-section">
-            <div class="hero-bg">
-                <img src="Images/bg pictures/paradox_1.png" alt="Paradox Manila Hero">
+    <!-- COLLECTIONS PAGE VIEW -->
+    <div id="collections-view" class="pt-5 min-vh-100">
+        <section class="py-5 container" id="collections">
+            <div class="text-center mb-5 mt-5">
+                <h2 class="display-4 font-serif mb-3">Full Catalog</h2>
+                <p class="text-secondary">Browse our complete library of scents.</p>
             </div>
-            <div class="hero-overlay"></div>
-            
-            <div class="container position-relative z-10">
-                <div class="row">
-                    <div class="col-lg-8 ps-lg-5 hero-content">
-                        <p class="text-uppercase text-secondary fw-semibold ls-2 mb-3 fade-in-up" style="letter-spacing: 0.2em;">The Essence of Accessible Luxury</p>
-                        <h1 class="display-1 fw-medium text-dark-text mb-4 fade-in-up" style="animation-delay: 0.1s;">
-                            Unlock Your <br><span class="fst-italic text-gold-accent">Signature Scent</span>
-                        </h1>
-                        <p class="lead text-secondary mb-5 fw-light fade-in-up" style="animation-delay: 0.2s; max-width: 500px;">
-                            Handcrafted fragrances inspired by the world's most iconic scents. 
-                            Experience 30% oil concentration for a lasting impression.
-                        </p>
-                        <div class="d-flex flex-column flex-sm-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
-                            <button class="btn btn-custom-dark" onclick="document.getElementById('featured-sections').scrollIntoView({behavior: 'smooth'})">
-                                See Featured Scents
-                            </button>
-                            <button class="btn btn-custom-outline d-flex align-items-center justify-content-center gap-2" onclick="startQuiz()">
-                                <span class="material-symbols-outlined">psychology</span>
-                                Find My Vibe
-                            </button>
-                        </div>
-                    </div>
-                </div>
+            <!-- Collection Tabs -->
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-5" id="collection-tabs">
+                <button class="btn btn-outline-dark tab-btn active" onclick="filterProducts('all')">All Scents</button>
+                <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('floral')">Floral</button>
+                <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('citrus')">Citrus</button>
+                <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('fruity')">Fruity</button>
+                <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('aquatic')">Aquatic</button>
+                <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('power')">Power</button>
             </div>
-        </header>
-
-        <!-- FEATURED SECTIONS -->
-        <div id="featured-sections">
-            <!-- Header for Featured -->
-            <div class="py-5 text-center" style="background-color: #FFF5F5;">
-                <h2 class="display-5 font-serif text-dark-text">Featured Collections</h2>
-                <div class="mx-auto mt-3 opacity-25 bg-dark" style="height: 2px; width: 100px;"></div>
-            </div>
-
-            <!-- FLORAL SECTION -->
-            <section class="py-5 bg-floral">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h3 class="h2 font-serif text-uppercase text-dark-text mb-2">The Floral Reverie Collection</h3>
-                        <p class="text-secondary fst-italic font-serif">Soft, romantic, and feminine scents inspired by nature in bloom.</p>
-                    </div>
-                    <div class="row g-4" id="featured-floral"></div>
-                </div>
-            </section>
-
-            <!-- CITRUS SECTION -->
-            <section class="py-5 bg-citrus">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h3 class="h2 font-serif text-uppercase text-dark-text mb-2">Citrus Collection — Sunlit Essence</h3>
-                        <p class="text-secondary fst-italic font-serif">Bright notes that bring energy, freshness, and the warmth of summer mornings.</p>
-                    </div>
-                    <div class="row g-4 justify-content-center" id="featured-citrus"></div>
-                </div>
-            </section>
-
-            <!-- FRUITY SECTION -->
-            <section class="py-5 bg-fruity">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h3 class="h2 font-serif text-uppercase text-dark-text mb-2">Fruity & Unique Scents — The Juicy Botanicals</h3>
-                        <p class="text-secondary fst-italic font-serif">Fresh, lively scents with crisp fruits, honeyed sweetness, and playful charm.</p>
-                    </div>
-                    <div class="row g-4 justify-content-center" id="featured-fruity"></div>
-                </div>
-            </section>
-            
-            <!-- POWER SECTION -->
-            <section class="py-5 bg-power">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h3 class="h2 font-serif text-uppercase text-dark-text mb-2">Aromatic / Sweet Boldness</h3>
-                        <p class="text-secondary fst-italic font-serif">Bold, sweet, and warm scents with depth and power.</p>
-                    </div>
-                    <div class="row g-4 justify-content-center" id="featured-power"></div>
-                </div>
-            </section>
-
-            <!-- AQUATIC SECTION -->
-            <section class="py-5 bg-aquatic">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h3 class="h2 font-serif text-uppercase text-dark-text mb-2">Fresh & Aquatic Collection</h3>
-                        <p class="text-secondary fst-italic font-serif">Clean, airy scents inspired by ocean breezes and everyday freshness.</p>
-                    </div>
-                    <div class="row g-4 justify-content-center" id="featured-aquatic"></div>
-                </div>
-            </section>
-        </div>
-
-        <!-- About Section -->
-        <section class="py-5 position-relative overflow-hidden" id="about" style="background-color: rgba(243, 229, 220, 0.3);">
-            <div class="container py-5">
-                <div class="row align-items-center gy-5">
-                    <div class="col-lg-6 position-relative">
-                        <div class="rounded-top-circle overflow-hidden shadow-lg" style="border-top-left-radius: 50%; border-top-right-radius: 50%;">
-                            <img alt="About Paradox" class="img-fluid w-100" src="Images/Picture Perfumes/The essence of Paradox.png">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-center text-lg-start">
-                        <h2 class="display-4 font-serif mb-4">The Essence of <br><span class="fst-italic text-dusty-rose">Paradox</span></h2>
-                        <div class="lead fw-light text-secondary mb-4">
-                            <p>
-                                We believe in democratized beauty. <strong>Paradox Manila</strong> was born from the idea that luxury shouldn't be gated by price. 
-                                We craft scents that mirror the complexity of high-end perfumery, bottled for the everyday dreamer.
-                            </p>
-                        </div>
-                        <div class="row g-4 mt-2">
-                            <div class="col-md-6">
-                                <div class="bg-white p-4 rounded shadow-sm h-100">
-                                    <span class="material-symbols-outlined fs-2 text-success mb-2">spa</span>
-                                    <h4 class="font-serif fw-bold h5 mb-2">30% Oil Concentration</h4>
-                                    <p class="small text-muted mb-0">Longer lasting scents that stay with you from morning mist to evening glow.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="bg-white p-4 rounded shadow-sm h-100">
-                                    <span class="material-symbols-outlined fs-2 text-dusty-rose mb-2">favorite</span>
-                                    <h4 class="font-serif fw-bold h5 mb-2">Accessible Luxury</h4>
-                                    <p class="small text-muted mb-0">Premium ingredients and glass packaging at a price that makes sense.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <!-- Product Grid -->
+            <div class="row g-4" id="product-grid">
+                <!-- Products injected by JS -->
             </div>
         </section>
     </div>

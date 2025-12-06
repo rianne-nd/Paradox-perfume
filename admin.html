@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal | Paradox Manila</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Lato', sans-serif;
+            --color-dark: #2C2525;
+            --color-gold: #C5A059;
+            --color-bg: #FCFAF9;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg);
+            color: var(--color-dark);
+            min-height: 100vh;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-serif);
+        }
+
+        /* Login Section */
+        #login-section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            border: none;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-radius: 1rem;
+            background: white;
+        }
+
+        /* Dashboard Sidebar */
+        .sidebar {
+            width: 260px;
+            background-color: var(--color-dark);
+            color: white;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            padding: 2rem;
+            z-index: 100;
+        }
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            padding: 0.75rem 1rem;
+            border-radius: 0.5rem;
+            transition: all 0.3s;
+            margin-bottom: 0.5rem;
+        }
+        .sidebar-link:hover, .sidebar-link.active {
+            background-color: rgba(255,255,255,0.1);
+            color: white;
+        }
+        
+        /* Dashboard Content */
+        .main-content {
+            margin-left: 260px;
+            padding: 2rem;
+        }
+        
+        .stat-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            height: 100%;
+        }
+
+        .table-card {
+            background: white;
+            border-radius: 1rem;
+            border: none;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            overflow: hidden;
+        }
+
+        .status-select {
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.25rem 2rem 0.25rem 1rem;
+        }
+
+        /* Loading Overlay */
+        #loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(255,255,255,0.8);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(5px);
+        }
+
+        @media (max-width: 768px) {
+            .sidebar { transform: translateX(-100%); transition: transform 0.3s; }
+            .sidebar.show { transform: translateX(0); }
+            .main-content { margin-left: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Loading Spinner -->
+    <div id="loading-overlay">
+        <div class="spinner-border text-dark" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <!-- LOGIN VIEW -->
+    <div id="login-section" class="d-none">
+        <div class="card login-card p-4 p-md-5">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold mb-1">Paradox Admin</h2>
+                <p class="text-muted small">Please sign in to continue</p>
+            </div>
+            <form id="login-form">
+                <div class="mb-3">
+                    <label class="form-label small fw-bold text-uppercase text-muted">Username</label>
+                    <input type="text" id="username" class="form-control form-control-lg bg-light border-0" required>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label small fw-bold text-uppercase text-muted">Password</label>
+                    <input type="password" id="password" class="form-control form-control-lg bg-light border-0" required>
+                </div>
+                <button type="submit" class="btn btn-dark w-100 py-3 fw-bold rounded-3" style="background-color: var(--color-dark);">Sign In</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- DASHBOARD VIEW -->
+    <div id="dashboard-section" class="d-none">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="mb-5">
+                <h4 class="fw-bold mb-0">Paradox</h4>
+                <span class="small text-muted">Management Portal</span>
+            </div>
+            
+            <div class="d-flex flex-column h-100">
+                <a href="#" class="sidebar-link active">
+                    <span class="material-symbols-outlined">dashboard</span>
+                    Dashboard
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="material-symbols-outlined">inventory_2</span>
+                    Products
+                </a>
+                <a href="#" class="sidebar-link">
+                    <span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+
+                <div class="mt-auto">
+                    <div class="d-flex align-items-center gap-3 mb-3 px-3">
+                        <div class="rounded-circle bg-secondary d-flex align-items-center justify-content-center text-white fw-bold" style="width: 32px; height: 32px;">A</div>
+                        <div class="small">
+                            <div class="fw-bold" id="admin-name">Admin</div>
+                            <div class="text-muted" style="font-size: 10px;">Super User</div>
+                        </div>
+                    </div>
+                    <button onclick="logout()" class="btn btn-outline-light w-100 d-flex align-items-center justify-content-center gap-2">
+                        <span class="material-symbols-outlined fs-6">logout</span> Sign Out
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="d-flex justify-content-between align-items-center mb-5">
+                <div>
+                    <h2 class="fw-bold mb-1">Overview</h2>
+                    <p class="text-muted mb-0">Here's what's happening with your store today.</p>
+                </div>
+                <button class="btn btn-light border shadow-sm d-flex align-items-center gap-2" onclick="fetchData()">
+                    <span class="material-symbols-outlined fs-5">refresh</span> Refresh
+                </button>
+            </div>
+
+            <!-- Stats -->
+            <div class="row g-4 mb-5">
+                <div class="col-md-6 col-lg-4">
+                    <div class="stat-card d-flex align-items-center justify-content-between">
+                        <div>
+                            <p class="text-muted small text-uppercase fw-bold mb-1">Total Orders</p>
+                            <h2 class="fw-bold mb-0" id="stat-orders">0</h2>
+                        </div>
+                        <div class="bg-light rounded-circle p-3 d-flex text-primary">
+                            <span class="material-symbols-outlined">shopping_bag</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="stat-card d-flex align-items-center justify-content-between">
+                        <div>
+                            <p class="text-muted small text-uppercase fw-bold mb-1">Total Revenue</p>
+                            <h2 class="fw-bold mb-0" id="stat-revenue">₱0.00</h2>
+                        </div>
+                        <div class="bg-light rounded-circle p-3 d-flex text-success">
+                            <span class="material-symbols-outlined">payments</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Orders Table -->
+            <div class="table-card">
+                <div class="p-4 border-bottom bg-white">
+                    <h5 class="fw-bold mb-0">Recent Orders</h5>
+                </div>
+                <div class="table-responsive">
+                    <table class="table table-hover mb-0 align-middle">
+                        <thead class="bg-light text-muted small text-uppercase">
+                            <tr>
+                                <th class="ps-4 py-3">Order ID</th>
+                                <th>Date</th>
+                                <th>Customer</th>
+                                <th>Items</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-table-body">
+                            <!-- Rows injected by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // --- LOGIC ---
+        const API_BASE = 'api';
+        // If the browser can't connect to PHP, we fall back to DEMO MODE
+        let IS_DEMO_MODE = false;
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            await checkSession();
+        });
+
+        async function checkSession() {
+            try {
+                const res = await fetch(`${API_BASE}/check_session.php`);
+                if (!res.ok) throw new Error('Server error');
+                const data = await res.json();
+                
+                if (data.loggedIn) {
+                    showDashboard();
+                } else {
+                    showLogin();
+                }
+            } catch (e) {
+                console.warn("Backend not detected. Switching to Demo Mode.");
+                IS_DEMO_MODE = true;
+                
+                // Check local storage for demo session
+                if (localStorage.getItem('admin_logged_in') === 'true') {
+                    showDashboard();
+                } else {
+                    showLogin();
+                }
+            } finally {
+                document.getElementById('loading-overlay').classList.add('d-none');
+            }
+        }
+
+        function showLogin() {
+            document.getElementById('login-section').classList.remove('d-none');
+            document.getElementById('dashboard-section').classList.add('d-none');
+        }
+
+        function showDashboard() {
+            document.getElementById('login-section').classList.add('d-none');
+            document.getElementById('dashboard-section').classList.remove('d-none');
+            fetchData();
+        }
+
+        // Login Handler
+        document.getElementById('login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            const originalText = btn.innerText;
+            btn.disabled = true;
+            btn.innerText = 'Signing in...';
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (IS_DEMO_MODE) {
+                // Simulate Login
+                setTimeout(() => {
+                    if (username === 'admin' && password === 'admin123') {
+                        localStorage.setItem('admin_logged_in', 'true');
+                        showDashboard();
+                    } else {
+                        alert('Invalid credentials (Try: admin / admin123)');
+                    }
+                    btn.disabled = false;
+                    btn.innerText = originalText;
+                }, 1000);
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_BASE}/login.php`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    showDashboard();
+                } else {
+                    alert(data.message || 'Login failed');
+                }
+            } catch (e) {
+                alert('Connection failed. Please ensure you are running on a PHP server.');
+            } finally {
+                if (!IS_DEMO_MODE) {
+                    btn.disabled = false;
+                    btn.innerText = originalText;
+                }
+            }
+        });
+
+        // Fetch Dashboard Data
+        async function fetchData() {
+            if (IS_DEMO_MODE) {
+                // Mock Data
+                const mockData = {
+                    stats: { orders: 12, revenue: 18500.00 },
+                    username: 'Admin (Demo)',
+                    orders: [
+                        { id: 105, created_at: '2023-12-05', customer_name: 'Maria Santos', phone: '09171234567', ig_handle: '@maria_s', items_json: '[{"name":"Burberry Women","qty":1}]', total_price: 150, status: 'Pending' },
+                        { id: 104, created_at: '2023-12-04', customer_name: 'John Doe', phone: '09181234567', ig_handle: '@johndoe', items_json: '[{"name":"Eros","qty":2}]', total_price: 300, status: 'Paid' },
+                        { id: 103, created_at: '2023-12-03', customer_name: 'Anna Cruz', phone: '09191234567', ig_handle: '@anna.c', items_json: '[{"name":"Light Blue","qty":1}]', total_price: 150, status: 'Shipped' }
+                    ]
+                };
+                renderDashboard(mockData);
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_BASE}/get_data.php`);
+                if (res.status === 401) {
+                    showLogin();
+                    return;
+                }
+                const data = await res.json();
+                renderDashboard(data);
+            } catch (e) {
+                console.error('Error fetching data', e);
+            }
+        }
+
+        function renderDashboard(data) {
+            // Update Stats
+            document.getElementById('stat-orders').innerText = data.stats.orders;
+            document.getElementById('stat-revenue').innerText = '₱' + parseFloat(data.stats.revenue).toLocaleString(undefined, {minimumFractionDigits: 2});
+            document.getElementById('admin-name').innerText = data.username;
+
+            // Update Table
+            const tbody = document.getElementById('orders-table-body');
+            tbody.innerHTML = data.orders.map(order => {
+                const items = typeof order.items_json === 'string' ? JSON.parse(order.items_json || '[]') : order.items_json;
+                const itemsHtml = items.map(i => `<div class="small text-muted">• ${i.name} (x${i.qty})</div>`).join('');
+                
+                const statusColors = {
+                    'Pending': 'text-bg-warning',
+                    'Paid': 'text-bg-success',
+                    'Shipped': 'text-bg-info',
+                    'Cancelled': 'text-bg-danger'
+                };
+
+                return `
+                    <tr>
+                        <td class="ps-4 fw-bold">#${order.id}</td>
+                        <td class="text-muted small">${new Date(order.created_at).toLocaleDateString()}</td>
+                        <td>
+                            <div class="fw-bold text-dark">${order.customer_name}</div>
+                            <div class="small text-muted">${order.phone || ''}</div>
+                            ${order.ig_handle ? `<a href="https://instagram.com/${order.ig_handle.replace('@','')}" target="_blank" class="small text-primary text-decoration-none">@${order.ig_handle.replace('@','')}</a>` : ''}
+                        </td>
+                        <td>${itemsHtml}</td>
+                        <td class="fw-bold">₱${parseFloat(order.total_price).toLocaleString()}</td>
+                        <td>
+                            <select onchange="updateStatus(${order.id}, this.value)" class="form-select form-select-sm status-select border-${statusColors[order.status] ? statusColors[order.status].split('-')[2] : 'secondary'}">
+                                <option value="Pending" ${order.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                                <option value="Paid" ${order.status === 'Paid' ? 'selected' : ''}>Paid</option>
+                                <option value="Shipped" ${order.status === 'Shipped' ? 'selected' : ''}>Shipped</option>
+                                <option value="Cancelled" ${order.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+                            </select>
+                        </td>
+                    </tr>
+                `;
+            }).join('');
+        }
+
+        // Update Status
+        async function updateStatus(id, newStatus) {
+            if (IS_DEMO_MODE) {
+                console.log(`[DEMO] Updated order #${id} to ${newStatus}`);
+                return;
+            }
+
+            try {
+                const res = await fetch(`${API_BASE}/update_status.php`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id, status: newStatus })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    fetchData(); 
+                } else {
+                    alert('Failed to update');
+                }
+            } catch (e) {
+                alert('Error updating status');
+            }
+        }
+
+        // Logout
+        async function logout() {
+            if (IS_DEMO_MODE) {
+                localStorage.removeItem('admin_logged_in');
+                showLogin();
+                return;
+            }
+            await fetch(`${API_BASE}/logout.php`);
+            showLogin();
+        }
+    </script>
+</body>
+</html>

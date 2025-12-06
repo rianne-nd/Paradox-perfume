@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Paradox Manila | Unlock Your Signature Scent</title>
+    <title>Paradox Manila | FAQ</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,7 +43,7 @@
             <ul class="navbar-nav gap-4">
                 <li class="nav-item"><a class="nav-link" href="collections.html">Collections</a></li>
                 <li class="nav-item"><a class="nav-link" href="index.html#about">About Us</a></li>
-                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link text-gold-accent" href="faq.html">FAQ</a></li>
                 <li class="nav-item"><a class="nav-link" href="#" onclick="startQuiz(); return false;">Scent Finder</a></li>
             </ul>
         </div>
@@ -53,141 +53,79 @@
 <!-- Main Content Area -->
 <main id="main-content">
     
-    <!-- HOME PAGE VIEW -->
-    <div id="home-view">
-        <!-- Hero Section -->
-        <header class="hero-section">
-            <div class="hero-bg">
-                <img src="Images/bg pictures/paradox_1.png" alt="Paradox Manila Hero">
+    <!-- FAQ PAGE VIEW -->
+    <div id="faq-view" class="min-vh-100 pt-5 bg-cream pb-5">
+        <div class="container py-5 mt-5" style="max-width: 900px;">
+            <div class="text-center mb-5">
+                <h1 class="display-4 font-serif text-dark-text mb-3">How can we help?</h1>
+                <p class="text-secondary">Find answers to your questions about our products, shipping, and more.</p>
             </div>
-            <div class="hero-overlay"></div>
-            
-            <div class="container position-relative z-10">
-                <div class="row">
-                    <div class="col-lg-8 ps-lg-5 hero-content">
-                        <p class="text-uppercase text-secondary fw-semibold ls-2 mb-3 fade-in-up" style="letter-spacing: 0.2em;">The Essence of Accessible Luxury</p>
-                        <h1 class="display-1 fw-medium text-dark-text mb-4 fade-in-up" style="animation-delay: 0.1s;">
-                            Unlock Your <br><span class="fst-italic text-gold-accent">Signature Scent</span>
-                        </h1>
-                        <p class="lead text-secondary mb-5 fw-light fade-in-up" style="animation-delay: 0.2s; max-width: 500px;">
-                            Handcrafted fragrances inspired by the world's most iconic scents. 
-                            Experience 30% oil concentration for a lasting impression.
-                        </p>
-                        <div class="d-flex flex-column flex-sm-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
-                            <button class="btn btn-custom-dark" onclick="document.getElementById('featured-sections').scrollIntoView({behavior: 'smooth'})">
-                                See Featured Scents
-                            </button>
-                            <button class="btn btn-custom-outline d-flex align-items-center justify-content-center gap-2" onclick="startQuiz()">
-                                <span class="material-symbols-outlined">psychology</span>
-                                Find My Vibe
-                            </button>
+
+            <!-- Search Bar -->
+            <div class="position-relative mx-auto mb-5" style="max-width: 600px;">
+                <span class="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted">
+                    <span class="material-symbols-outlined">search</span>
+                </span>
+                <input type="text" placeholder="Search for Questions" class="form-control form-control-lg rounded-pill ps-5 shadow-sm border-light">
+            </div>
+
+            <!-- Accordion -->
+            <div class="accordion shadow-sm rounded-3 overflow-hidden" id="faqAccordion">
+                <div class="accordion-item border-0 border-bottom">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button fw-bold font-serif text-dark-text p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                            Products from what country?
+                        </button>
+                    </h2>
+                    <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body px-4 pb-4 text-secondary">
+                            Our fragrance oils are sourced directly from Grasse, France, the perfume capital of the world. This ensures top-tier quality and longevity. The blending, aging, and bottling process takes place here in Manila to ensure freshness.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 border-bottom">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold font-serif text-dark-text p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                            What are your concentrations?
+                        </button>
+                    </h2>
+                    <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body px-4 pb-4 text-secondary">
+                            All our perfumes are Eau de Parfum (EDP) with a guaranteed 30% oil concentration. This is higher than the standard 15-20% found in many commercial scents, ensuring a long-lasting fragrance that stays with you for 8-12 hours.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 border-bottom">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold font-serif text-dark-text p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                            Do you accept returns or exchanges?
+                        </button>
+                    </h2>
+                    <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body px-4 pb-4 text-secondary">
+                            For hygiene reasons, we do not accept returns on opened bottles. However, if your bottle arrives broken or damaged, please send us a photo within 24 hours of delivery, and we will happily send a replacement free of charge.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold font-serif text-dark-text p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
+                            How long is shipping?
+                        </button>
+                    </h2>
+                    <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body px-4 pb-4 text-secondary">
+                            Standard shipping within Metro Manila takes 2-3 business days. Provincial shipping takes 5-7 business days. We ship via our trusted courier partners to ensure your package arrives safely.
                         </div>
                     </div>
                 </div>
             </div>
-        </header>
 
-        <!-- FEATURED SECTIONS -->
-        <div id="featured-sections">
-            <!-- Header for Featured -->
-            <div class="py-5 text-center" style="background-color: #FFF5F5;">
-                <h2 class="display-5 font-serif text-dark-text">Featured Collections</h2>
-                <div class="mx-auto mt-3 opacity-25 bg-dark" style="height: 2px; width: 100px;"></div>
+            <div class="text-center mt-5">
+                <h3 class="h4 font-serif mb-3">Still have questions?</h3>
+                <button class="btn btn-custom-dark">Contact Us</button>
             </div>
-
-            <!-- FLORAL SECTION -->
-            <section class="py-5 bg-floral">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h3 class="h2 font-serif text-uppercase text-dark-text mb-2">The Floral Reverie Collection</h3>
-                        <p class="text-secondary fst-italic font-serif">Soft, romantic, and feminine scents inspired by nature in bloom.</p>
-                    </div>
-                    <div class="row g-4" id="featured-floral"></div>
-                </div>
-            </section>
-
-            <!-- CITRUS SECTION -->
-            <section class="py-5 bg-citrus">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h3 class="h2 font-serif text-uppercase text-dark-text mb-2">Citrus Collection — Sunlit Essence</h3>
-                        <p class="text-secondary fst-italic font-serif">Bright notes that bring energy, freshness, and the warmth of summer mornings.</p>
-                    </div>
-                    <div class="row g-4 justify-content-center" id="featured-citrus"></div>
-                </div>
-            </section>
-
-            <!-- FRUITY SECTION -->
-            <section class="py-5 bg-fruity">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h3 class="h2 font-serif text-uppercase text-dark-text mb-2">Fruity & Unique Scents — The Juicy Botanicals</h3>
-                        <p class="text-secondary fst-italic font-serif">Fresh, lively scents with crisp fruits, honeyed sweetness, and playful charm.</p>
-                    </div>
-                    <div class="row g-4 justify-content-center" id="featured-fruity"></div>
-                </div>
-            </section>
-            
-            <!-- POWER SECTION -->
-            <section class="py-5 bg-power">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h3 class="h2 font-serif text-uppercase text-dark-text mb-2">Aromatic / Sweet Boldness</h3>
-                        <p class="text-secondary fst-italic font-serif">Bold, sweet, and warm scents with depth and power.</p>
-                    </div>
-                    <div class="row g-4 justify-content-center" id="featured-power"></div>
-                </div>
-            </section>
-
-            <!-- AQUATIC SECTION -->
-            <section class="py-5 bg-aquatic">
-                <div class="container">
-                    <div class="text-center mb-5">
-                        <h3 class="h2 font-serif text-uppercase text-dark-text mb-2">Fresh & Aquatic Collection</h3>
-                        <p class="text-secondary fst-italic font-serif">Clean, airy scents inspired by ocean breezes and everyday freshness.</p>
-                    </div>
-                    <div class="row g-4 justify-content-center" id="featured-aquatic"></div>
-                </div>
-            </section>
         </div>
-
-        <!-- About Section -->
-        <section class="py-5 position-relative overflow-hidden" id="about" style="background-color: rgba(243, 229, 220, 0.3);">
-            <div class="container py-5">
-                <div class="row align-items-center gy-5">
-                    <div class="col-lg-6 position-relative">
-                        <div class="rounded-top-circle overflow-hidden shadow-lg" style="border-top-left-radius: 50%; border-top-right-radius: 50%;">
-                            <img alt="About Paradox" class="img-fluid w-100" src="Images/Picture Perfumes/The essence of Paradox.png">
-                        </div>
-                    </div>
-                    <div class="col-lg-6 text-center text-lg-start">
-                        <h2 class="display-4 font-serif mb-4">The Essence of <br><span class="fst-italic text-dusty-rose">Paradox</span></h2>
-                        <div class="lead fw-light text-secondary mb-4">
-                            <p>
-                                We believe in democratized beauty. <strong>Paradox Manila</strong> was born from the idea that luxury shouldn't be gated by price. 
-                                We craft scents that mirror the complexity of high-end perfumery, bottled for the everyday dreamer.
-                            </p>
-                        </div>
-                        <div class="row g-4 mt-2">
-                            <div class="col-md-6">
-                                <div class="bg-white p-4 rounded shadow-sm h-100">
-                                    <span class="material-symbols-outlined fs-2 text-success mb-2">spa</span>
-                                    <h4 class="font-serif fw-bold h5 mb-2">30% Oil Concentration</h4>
-                                    <p class="small text-muted mb-0">Longer lasting scents that stay with you from morning mist to evening glow.</p>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="bg-white p-4 rounded shadow-sm h-100">
-                                    <span class="material-symbols-outlined fs-2 text-dusty-rose mb-2">favorite</span>
-                                    <h4 class="font-serif fw-bold h5 mb-2">Accessible Luxury</h4>
-                                    <p class="small text-muted mb-0">Premium ingredients and glass packaging at a price that makes sense.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 
 </main>
