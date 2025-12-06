@@ -222,6 +222,18 @@
         updateOrderText();
     }
 
+    function updateQuantity(id, newQty) {
+        const item = cart.find(item => item.id === id);
+        if (item) {
+            item.qty = parseInt(newQty);
+            if (item.qty <= 0) {
+                cart = cart.filter(i => i.id !== id);
+            }
+            localStorage.setItem('paradoxCart', JSON.stringify(cart));
+            loadCart();
+        }
+    }
+
     function renderOrderSummary() {
         const container = document.getElementById('order-summary-items');
         const subtotalEl = document.getElementById('summary-subtotal');
@@ -242,13 +254,14 @@
                     <div class="d-flex gap-3 align-items-center">
                         <div class="position-relative">
                             <img src="${item.image}" alt="${item.name}" class="rounded object-fit-cover" style="width: 60px; height: 60px;">
-                            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dusty-rose">
-                                ${item.qty}
-                            </span>
                         </div>
                         <div class="flex-grow-1">
                             <h6 class="mb-0 font-serif text-dark-text small fw-bold">${item.name}</h6>
-                            <small class="text-secondary">Eau de Parfum</small>
+                            <div class="d-flex align-items-center gap-2 mt-1">
+                                <button class="btn btn-sm btn-outline-secondary py-0 px-2" onclick="updateQuantity(${item.id}, ${item.qty - 1})">-</button>
+                                <input type="number" class="form-control form-control-sm text-center p-0" style="width: 40px;" value="${item.qty}" onchange="updateQuantity(${item.id}, this.value)">
+                                <button class="btn btn-sm btn-outline-secondary py-0 px-2" onclick="updateQuantity(${item.id}, ${item.qty + 1})">+</button>
+                            </div>
                         </div>
                         <div class="fw-bold text-dark-text">₱${itemTotal.toFixed(2)}</div>
                     </div>

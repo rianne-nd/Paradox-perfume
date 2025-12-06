@@ -178,6 +178,19 @@ function saveCart() {
     localStorage.setItem('paradoxCart', JSON.stringify(cart));
 }
 
+function updateQuantity(id, newQty) {
+    const item = cart.find(item => item.id === id);
+    if (item) {
+        item.qty = parseInt(newQty);
+        if (item.qty <= 0) {
+            removeFromCart(id);
+        } else {
+            saveCart();
+            updateCartUI();
+        }
+    }
+}
+
 function updateCartUI() {
     const container = document.getElementById('cart-items');
     const countBadge = document.getElementById('cart-count');
@@ -211,11 +224,19 @@ function updateCartUI() {
             </div>
             <div class="flex-grow-1">
                 <h6 class="font-serif fw-bold mb-0 small">${item.name}</h6>
-                <p class="text-muted small mb-0">₱${item.price} x ${item.qty}</p>
+                <div class="d-flex align-items-center gap-2 mt-1">
+                    <button class="btn btn-sm btn-outline-secondary py-0 px-2" onclick="updateQuantity(${item.id}, ${item.qty - 1})">-</button>
+                    <input type="number" class="form-control form-control-sm text-center p-0" style="width: 40px;" value="${item.qty}" onchange="updateQuantity(${item.id}, this.value)">
+                    <button class="btn btn-sm btn-outline-secondary py-0 px-2" onclick="updateQuantity(${item.id}, ${item.qty + 1})">+</button>
+                </div>
+                <p class="text-muted small mb-0 mt-1">₱${item.price} each</p>
             </div>
-            <button onclick="removeFromCart(${item.id})" class="btn btn-link text-secondary p-0">
-                <span class="material-symbols-outlined">delete</span>
-            </button>
+            <div class="text-end">
+                <div class="fw-bold small mb-2">₱${(item.price * item.qty).toFixed(2)}</div>
+                <button onclick="removeFromCart(${item.id})" class="btn btn-link text-secondary p-0">
+                    <span class="material-symbols-outlined">delete</span>
+                </button>
+            </div>
         </div>
     `).join('');
 
