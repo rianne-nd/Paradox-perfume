@@ -1,4 +1,14 @@
-// Data
+// ==========================================
+// PRODUCT DATA
+// ==========================================
+// Array of product objects. Each object represents a perfume.
+// Properties:
+// - id: Unique identifier for the product.
+// - name: Display name of the perfume.
+// - collection: Category used for filtering (floral, citrus, etc.).
+// - price: Cost in PHP.
+// - description: Short text describing the scent profile.
+// - image: Path to the product image.
 const products = [
     // Floral Reverie
     { id: 1, name: "Burberry Women", collection: "floral", price: 150, description: "A classic, elegant scent for the modern woman.", image: "Images/THE FLORAL REVERIE COLLECTION/Burberry Women.jpg" },
@@ -25,16 +35,27 @@ const products = [
     { id: 12, name: "Eternity (Men)", collection: "power", price: 150, description: "Distinctive. Romantic. Timeless. A classic fougère scent.", image: "Images/AROMATIC  SWEET BOLDNESS — THE POWER SERIES/Eternity (Men).png" }
 ];
 
+// ==========================================
+// STATE MANAGEMENT
+// ==========================================
+// cart: Array to store items added by the user. 
+// Loaded from localStorage to persist data across page reloads.
 let cart = JSON.parse(localStorage.getItem('paradoxCart')) || [];
 let currentFilter = 'all';
 
-// Initialization
+// ==========================================
+// INITIALIZATION
+// ==========================================
+// Runs when the HTML document has been completely loaded and parsed.
 document.addEventListener('DOMContentLoaded', () => {
+    // Render all products initially
     renderProducts('all');
+    // Render specific sections for the homepage
     renderFeaturedSections();
+    // Update the cart icon and drawer
     updateCartUI();
     
-    // Navbar scroll effect
+    // Navbar scroll effect: Adds a background when scrolling down
     window.addEventListener('scroll', () => {
         const nav = document.getElementById('navbar');
         if (nav) {
@@ -59,7 +80,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+// ==========================================
+// RENDERING FUNCTIONS
+// ==========================================
+
 // Render Featured Sections
+// Renders specific product cards into the featured sections on the homepage.
+// Filters the main products array by collection and injects HTML.
 function renderFeaturedSections() {
     const renderCards = (items, containerId) => {
         const container = document.getElementById(containerId);
@@ -152,7 +179,12 @@ function filterProducts(category) {
     renderProducts(category);
 }
 
-// Cart Logic
+// ==========================================
+// CART LOGIC
+// ==========================================
+
+// Adds a product to the cart array.
+// If the item exists, increments quantity. Otherwise, adds new object.
 function addToCart(id) {
     const product = products.find(p => p.id === id);
     const existing = cart.find(item => item.id === id);
@@ -163,9 +195,9 @@ function addToCart(id) {
         cart.push({ ...product, qty: 1 });
     }
 
-    saveCart();
-    updateCartUI();
-    showToast(`Added ${product.name} to bag`);
+    saveCart(); // Persist to localStorage
+    updateCartUI(); // Update the view
+    showToast(`Added ${product.name} to bag`); // User feedback
 }
 
 function removeFromCart(id) {

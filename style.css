@@ -1,3 +1,8 @@
+/* 
+    CSS Variables (Custom Properties):
+    - Defined in :root for global scope.
+    - Makes it easy to change theme colors and fonts across the entire site.
+*/
 :root {
     --font-serif: 'Playfair Display', serif;
     --font-sans: 'Lato', sans-serif;
@@ -32,7 +37,11 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 .bg-champagne { background-color: var(--color-champagne); }
 .bg-cream { background-color: var(--color-cream-bg); }
 
-/* Navbar */
+/* 
+    Navbar Styles:
+    - Transparent by default.
+    - Becomes white with blur effect (.scrolled) when user scrolls down.
+*/
 .navbar {
     background-color: transparent;
     backdrop-filter: blur(0px);

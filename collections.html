@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- 
+        Collections Page:
+        - Displays all products in a grid.
+        - Allows filtering by category (Floral, Citrus, etc.).
+    -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paradox Manila | Collections</title>
@@ -61,6 +66,12 @@
                 <p class="text-secondary">Browse our complete library of scents.</p>
             </div>
             <!-- Collection Tabs -->
+            <!-- 
+                Filter Tabs:
+                - Buttons to filter the product grid.
+                - 'onclick' calls filterProducts() in script.js.
+                - 'active' class is toggled by JS to show selected tab.
+            -->
             <div class="d-flex flex-wrap justify-content-center gap-2 mb-5" id="collection-tabs">
                 <button class="btn btn-outline-dark tab-btn active" onclick="filterProducts('all')">All Scents</button>
                 <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('floral')">Floral</button>
@@ -70,6 +81,11 @@
                 <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('power')">Power</button>
             </div>
             <!-- Product Grid -->
+            <!-- 
+                Product Grid:
+                - Empty container populated by renderProducts() in script.js.
+                - Uses Bootstrap grid classes (row, col-*) for responsiveness.
+            -->
             <div class="row g-4" id="product-grid">
                 <!-- Products injected by JS -->
             </div>

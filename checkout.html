@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- 
+        Checkout Page:
+        - Collects user shipping information.
+        - Displays order summary.
+        - Generates a pre-formatted message for Facebook Messenger.
+    -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Checkout - Paradox Manila</title>
@@ -52,6 +58,11 @@
     </div>
 
     <!-- Instructions Section -->
+    <!-- 
+        Instructions:
+        - Explains the manual checkout process (Copy text -> Send to Messenger).
+        - This is a workaround for not having a payment gateway.
+    -->
     <div class="row justify-content-center mb-5">
         <div class="col-lg-8">
             <div class="p-4 rounded border" style="background-color: var(--color-cream-bg); border-color: var(--color-champagne-dark) !important;">
@@ -68,6 +79,11 @@
 
     <div class="row g-5">
         <!-- Left Column: Shipping Form -->
+        <!-- 
+            Shipping Form:
+            - Standard HTML form inputs.
+            - 'input' event listeners (added in script) update the generated message in real-time.
+        -->
         <div class="col-lg-7">
             <div class="card border-0 shadow-sm h-100">
                 <div class="card-body p-4">
@@ -105,6 +121,12 @@
                     <h2 class="h4 font-serif mb-4 mt-5 pb-2 border-bottom">Finalize Order</h2>
                     <div class="mb-3">
                         <label for="order-details" class="form-label small text-secondary">Message Preview (Auto-generated)</label>
+                        <!-- 
+                            Auto-generated Message:
+                            - Read-only textarea.
+                            - Populated by updateOrderText() function.
+                            - Contains the formatted text the user will send to Messenger.
+                        -->
                         <textarea class="form-control bg-light font-monospace small" id="order-details" rows="10" readonly></textarea>
                     </div>
                 </div>
@@ -112,6 +134,11 @@
         </div>
 
         <!-- Right Column: Order Summary -->
+        <!-- 
+            Order Summary:
+            - Sticky sidebar showing cart items and total.
+            - Populated by renderOrderSummary() function.
+        -->
         <div class="col-lg-5">
             <div class="card border-0 shadow-sm position-sticky" style="top: 100px;">
                 <div class="card-body p-4">
