@@ -1,20 +1,29 @@
+<!-- 
+    LEARNING NOTE: HTML Structure
+    - <!DOCTYPE html>: Tells the browser this is an HTML5 document.
+    - <html>: The root element. 'lang="en"' helps search engines and screen readers.
+    - <head>: Contains metadata (info about the page) that isn't visible to the user.
+    - <body>: Contains the visible content.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- 
-        Meta Tags:
-        - charset: Defines the character encoding (UTF-8).
-        - viewport: Ensures proper rendering and scaling on mobile devices.
+        LEARNING NOTE: Meta Tags
+        - charset="utf-8": Ensures the browser can display all characters (including emojis!).
+        - viewport: CRITICAL for mobile responsiveness. It tells the browser to set the width 
+          of the page to the width of the device's screen. Without this, mobile phones 
+          would zoom out to show the whole desktop site, making text tiny.
     -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paradox Manila | Unlock Your Signature Scent</title>
     
     <!-- 
-        External Libraries & Fonts:
-        - Bootstrap 5 CSS: For responsive layout, grid system, and pre-built components.
-        - Material Symbols: Google's icon library for UI elements (cart, menu, etc.).
-        - Google Fonts: 'Playfair Display' for elegant headings, 'Lato' for readable body text.
+        LEARNING NOTE: External Resources (CDN)
+        - We are linking to files hosted on other servers (CDNs - Content Delivery Networks).
+        - This loads Bootstrap (CSS framework) and Google Fonts without downloading them locally.
+        - rel="stylesheet": Tells the browser this file contains style rules.
     -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Google Fonts -->
@@ -28,9 +37,11 @@
 
 <!-- Navigation -->
 <!-- 
-    Navigation Bar:
-    - fixed-top: Keeps the navbar at the top of the viewport while scrolling.
-    - navbar-expand-lg: Collapses menu items into a hamburger menu on smaller screens (<992px).
+    LEARNING NOTE: Bootstrap Navbar
+    - <nav>: Semantic HTML tag for navigation links.
+    - .navbar-expand-lg: This class tells the navbar to show full links on Large screens (lg),
+      but collapse into a "hamburger menu" on smaller screens.
+    - .fixed-top: Uses CSS 'position: fixed' to stick the navbar to the top of the viewport.
 -->
 <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
     <div class="container-fluid px-lg-5">
@@ -77,31 +88,38 @@
             - The large banner at the top.
             - Contains the background image, overlay for text readability, and CTA buttons.
         -->
+                <!-- 
+            Hero Section: 
+            - The large banner at the top.
+            - Contains the background image, overlay for text readability, and CTA buttons.
+            - LEARNING NOTE: We use 'position: relative' on the parent so we can use 'position: absolute'
+              on the children (bg and overlay) to stack them on top of each other.
+        -->
         <header class="hero-section">
             <div class="hero-bg">
-                <img src="Images/bg pictures/paradox_1.png" alt="Paradox Manila Hero">
+                <img src="Images/bg pictures/bg.png" alt="Perfume Background">
             </div>
+            <!-- Overlay: A semi-transparent layer to make text readable against the image -->
             <div class="hero-overlay"></div>
             
+            <!-- 
+                z-10: A utility class (or custom style) to ensure the text sits ON TOP of the overlay.
+                container: Centers the content and gives it max-width.
+            -->
             <div class="container position-relative z-10">
-                <div class="row">
-                    <div class="col-lg-8 ps-lg-5 hero-content">
-                        <p class="text-uppercase text-secondary fw-semibold ls-2 mb-3 fade-in-up" style="letter-spacing: 0.2em;">The Essence of Accessible Luxury</p>
-                        <h1 class="display-1 fw-medium text-dark-text mb-4 fade-in-up" style="animation-delay: 0.1s;">
-                            Unlock Your <br><span class="fst-italic text-gold-accent">Signature Scent</span>
+                <div class="row min-vh-100 align-items-center">
+                    <div class="col-lg-7 text-dark-text fade-in-up">
+                        <span class="text-uppercase ls-2 small fw-bold mb-3 d-block text-gold-accent">Est. 2025</span>
+                        <h1 class="display-1 font-serif fw-bold mb-4 lh-1">
+                            Scent is the <br>
+                            <span class="fst-italic fw-normal">Silent Language.</span>
                         </h1>
-                        <p class="lead text-secondary mb-5 fw-light fade-in-up" style="animation-delay: 0.2s; max-width: 500px;">
-                            Handcrafted fragrances inspired by the world's most iconic scents. 
-                            Experience 30% oil concentration for a lasting impression.
+                        <p class="lead mb-5 text-secondary" style="max-width: 500px;">
+                            Discover fragrances that speak before you do. Handcrafted, long-lasting, and undeniably you.
                         </p>
-                        <div class="d-flex flex-column flex-sm-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
-                            <button class="btn btn-custom-dark" onclick="document.getElementById('featured-sections').scrollIntoView({behavior: 'smooth'})">
-                                See Featured Scents
-                            </button>
-                            <button class="btn btn-custom-outline d-flex align-items-center justify-content-center gap-2" onclick="startQuiz()">
-                                <span class="material-symbols-outlined">psychology</span>
-                                Find My Vibe
-                            </button>
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="collections.html" class="btn btn-custom-dark btn-lg shadow-sm">Shop Collections</a>
+                            <button onclick="startQuiz()" class="btn btn-custom-outline btn-lg shadow-sm">Find Your Scent</button>
                         </div>
                     </div>
                 </div>

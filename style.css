@@ -2,6 +2,10 @@
     CSS Variables (Custom Properties):
     - Defined in :root for global scope.
     - Makes it easy to change theme colors and fonts across the entire site.
+    - LEARNING NOTE: CSS Variables
+      - Syntax: --variable-name: value;
+      - Usage: var(--variable-name)
+      - Benefit: If we want to change the brand color, we only change it here once!
 */
 :root {
     --font-serif: 'Playfair Display', serif;
@@ -41,6 +45,9 @@ h1, h2, h3, h4, h5, h6, .font-serif {
     Navbar Styles:
     - Transparent by default.
     - Becomes white with blur effect (.scrolled) when user scrolls down.
+    - LEARNING NOTE: Transitions
+      - transition: all 0.5s ease; -> Animates changes smoothly over 0.5 seconds.
+      - backdrop-filter: blur(15px); -> Creates the "frosted glass" effect.
 */
 .navbar {
     background-color: transparent;
@@ -65,6 +72,12 @@ h1, h2, h3, h4, h5, h6, .font-serif {
 }
 
 /* Hero Section */
+/* 
+    LEARNING NOTE: Flexbox & Positioning
+    - position: relative; -> Establishes a coordinate system for children.
+    - position: absolute; -> Positions element relative to the nearest 'relative' parent.
+    - z-index: Controls the stacking order (layers). Higher numbers are "closer" to the user.
+*/
 .hero-section {
     position: relative;
     height: 100vh;

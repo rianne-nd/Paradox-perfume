@@ -261,6 +261,12 @@
         }
     }
 
+    /* 
+        LEARNING NOTE: Dynamic Order Summary
+        - This function rebuilds the HTML for the order summary every time the cart changes.
+        - It calculates the subtotal and total dynamically.
+        - It uses Template Literals (backticks `) to insert variables directly into the HTML string.
+    */
     function renderOrderSummary() {
         const container = document.getElementById('order-summary-items');
         const subtotalEl = document.getElementById('summary-subtotal');
@@ -300,6 +306,12 @@
         totalEl.innerText = `₱${(subtotal + SHIPPING_FEE).toFixed(2)}`;
     }
 
+    /* 
+        LEARNING NOTE: Form Data Collection
+        - This function grabs values from the input fields using .value.
+        - It combines the user's info with the cart items into a single formatted string.
+        - This string is what gets copied to the clipboard for the user to paste in Messenger.
+    */
     function updateOrderText() {
         const firstName = document.getElementById('first-name').value || '[First Name]';
         const lastName = document.getElementById('last-name').value || '[Last Name]';
@@ -331,6 +343,12 @@ Philippines`;
         document.getElementById('order-details').value = text;
     }
 
+    /* 
+        LEARNING NOTE: Clipboard API & Redirection
+        - navigator.clipboard.writeText() is the modern way to copy text.
+        - document.execCommand('copy') is a fallback for older browsers.
+        - window.open() opens the Facebook link in a new tab ('_blank').
+    */
     function copyAndRedirect() {
         if (cart.length === 0) {
             alert("Your bag is empty!");

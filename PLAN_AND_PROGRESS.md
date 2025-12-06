@@ -13,8 +13,13 @@ This version of the project (`Paradox-perfume - Copy`) has been converted to a p
   - Removed `admin.html` (Admin dashboard requires backend).
 - **Cleanup**:
   - Deleted unused backup files (`index_tailwind_backup.html`).
-- **Documentation**:
-  - Added extensive comments to `index.html`, `script.js`, `style.css`, and `checkout.html` to explain the core logic.
+- **Documentation & Education**:
+  - Added **"LEARNING NOTE"** blocks to key files to explain technical concepts for academic defense/learning.
+  - `index.html`: Explained HTML structure, Meta tags, and CSS positioning.
+  - `script.js`: Explained Data Structures (Arrays/Objects), Event Loops, and `localStorage`.
+  - `style.css`: Explained CSS Variables and Transitions.
+  - `checkout.html`: Explained Template Literals and Clipboard API logic.
+  - `faq.html`: Explained Bootstrap Accordion attributes.
 
 ### Active Features
 1.  **Product Catalog**: `collections.html` displays products with filtering (Floral, Citrus, etc.).

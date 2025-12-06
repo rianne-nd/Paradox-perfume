@@ -1,14 +1,10 @@
 // ==========================================
-// PRODUCT DATA
+// LEARNING NOTE: Data Structures (Arrays of Objects)
 // ==========================================
-// Array of product objects. Each object represents a perfume.
-// Properties:
-// - id: Unique identifier for the product.
-// - name: Display name of the perfume.
-// - collection: Category used for filtering (floral, citrus, etc.).
-// - price: Cost in PHP.
-// - description: Short text describing the scent profile.
-// - image: Path to the product image.
+// In a real app, this data would come from a database (MySQL/MongoDB).
+// Since this is a static site, we use an Array of Objects to simulate a database.
+// - [] : Array (a list of items)
+// - {} : Object (a collection of key-value pairs describing one item)
 const products = [
     // Floral Reverie
     { id: 1, name: "Burberry Women", collection: "floral", price: 150, description: "A classic, elegant scent for the modern woman.", image: "Images/THE FLORAL REVERIE COLLECTION/Burberry Women.jpg" },
@@ -44,9 +40,11 @@ let cart = JSON.parse(localStorage.getItem('paradoxCart')) || [];
 let currentFilter = 'all';
 
 // ==========================================
-// INITIALIZATION
+// LEARNING NOTE: DOMContentLoaded
 // ==========================================
-// Runs when the HTML document has been completely loaded and parsed.
+// We wrap our code in this event listener to ensure it doesn't run until 
+// the HTML is fully loaded. If we tried to find elements (like 'document.getElementById')
+// before they existed, the script would crash.
 document.addEventListener('DOMContentLoaded', () => {
     // Render all products initially
     renderProducts('all');
@@ -87,6 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
 // Render Featured Sections
 // Renders specific product cards into the featured sections on the homepage.
 // Filters the main products array by collection and injects HTML.
+// ==========================================
+// LEARNING NOTE: Array Methods (filter, map, join)
+// ==========================================
+// This function demonstrates powerful functional programming concepts:
+// 1. filter(): Creates a new array with only elements that pass a test.
+// 2. map(): Transforms each element in the array into something else (here, an HTML string).
+// 3. join(''): Combines the array of strings into one big string to put on the page.
 function renderFeaturedSections() {
     const renderCards = (items, containerId) => {
         const container = document.getElementById(containerId);
@@ -185,6 +190,9 @@ function filterProducts(category) {
 
 // Adds a product to the cart array.
 // If the item exists, increments quantity. Otherwise, adds new object.
+// LEARNING NOTE: Array.find()
+// - Searches the array for the first element that matches the condition.
+// - Returns 'undefined' if no match is found.
 function addToCart(id) {
     const product = products.find(p => p.id === id);
     const existing = cart.find(item => item.id === id);
@@ -192,6 +200,9 @@ function addToCart(id) {
     if (existing) {
         existing.qty++;
     } else {
+        // LEARNING NOTE: Spread Operator (...)
+        // - Creates a copy of the product object.
+        // - Adds a new property 'qty' to it.
         cart.push({ ...product, qty: 1 });
     }
 
@@ -201,12 +212,18 @@ function addToCart(id) {
 }
 
 function removeFromCart(id) {
+    // LEARNING NOTE: Array.filter() for Deletion
+    // - We "delete" an item by creating a new array that includes everything EXCEPT that item.
     cart = cart.filter(item => item.id !== id);
     saveCart();
     updateCartUI();
 }
 
 function saveCart() {
+    // LEARNING NOTE: localStorage
+    // - Allows us to save data in the user's browser.
+    // - Data persists even after closing the tab.
+    // - Only stores strings, so we use JSON.stringify().
     localStorage.setItem('paradoxCart', JSON.stringify(cart));
 }
 
