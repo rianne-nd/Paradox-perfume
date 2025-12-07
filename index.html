@@ -46,15 +46,12 @@
 <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
     <div class="container-fluid px-lg-5">
         <!-- Brand Logo -->
-        <a class="navbar-brand font-serif fw-bold fs-3 text-dark-text" href="index.html">
-            Paradox <span class="fw-normal fst-italic fs-4">Manila</span>
+        <a class="navbar-brand font-serif fw-bold fs-3 text-dark-text d-flex align-items-center gap-2" href="index.html">
+            <img src="Images/ParadoxLogo.jpg" alt="Paradox Logo" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+            <span>Paradox <span class="fw-normal fst-italic fs-4">Manila</span></span>
         </a>
         
         <div class="d-flex align-items-center gap-3 order-lg-3">
-            <!-- Github Save Button (For development/demo purposes) -->
-            <button class="btn btn-link text-dark-text p-2 position-relative" onclick="openGithubModal()" title="Save to GitHub">
-                <span class="material-symbols-outlined fs-3">save</span>
-            </button>
             <!-- Cart Button: Toggles the offcanvas cart drawer -->
             <button class="btn btn-link text-dark-text p-2 position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer">
                 <span class="material-symbols-outlined fs-3">shopping_bag</span>
@@ -97,7 +94,7 @@
         -->
         <header class="hero-section">
             <div class="hero-bg">
-                <img src="Images/bg pictures/bg.png" alt="Perfume Background">
+                <img src="Images/bg pictures/paradox_1.png" alt="Paradox Manila Hero">
             </div>
             <!-- Overlay: A semi-transparent layer to make text readable against the image -->
             <div class="hero-overlay"></div>
@@ -107,19 +104,24 @@
                 container: Centers the content and gives it max-width.
             -->
             <div class="container position-relative z-10">
-                <div class="row min-vh-100 align-items-center">
-                    <div class="col-lg-7 text-dark-text fade-in-up">
-                        <span class="text-uppercase ls-2 small fw-bold mb-3 d-block text-gold-accent">Est. 2025</span>
-                        <h1 class="display-1 font-serif fw-bold mb-4 lh-1">
-                            Scent is the <br>
-                            <span class="fst-italic fw-normal">Silent Language.</span>
+                <div class="row">
+                    <div class="col-lg-8 ps-lg-5 hero-content">
+                        <p class="text-uppercase text-secondary fw-semibold ls-2 mb-3 fade-in-up" style="letter-spacing: 0.2em;">The Essence of Accessible Luxury</p>
+                        <h1 class="display-1 fw-medium text-dark-text mb-4 fade-in-up" style="animation-delay: 0.1s;">
+                            Unlock Your <br><span class="fst-italic text-gold-accent">Signature Scent</span>
                         </h1>
-                        <p class="lead mb-5 text-secondary" style="max-width: 500px;">
-                            Discover fragrances that speak before you do. Handcrafted, long-lasting, and undeniably you.
+                        <p class="lead text-secondary mb-5 fw-light fade-in-up" style="animation-delay: 0.2s; max-width: 500px;">
+                            Handcrafted fragrances inspired by the world's most iconic scents. 
+                            Experience 30% oil concentration for a lasting impression.
                         </p>
-                        <div class="d-flex gap-3 flex-wrap">
-                            <a href="collections.html" class="btn btn-custom-dark btn-lg shadow-sm">Shop Collections</a>
-                            <button onclick="startQuiz()" class="btn btn-custom-outline btn-lg shadow-sm">Find Your Scent</button>
+                        <div class="d-flex flex-column flex-sm-row gap-3 fade-in-up" style="animation-delay: 0.3s;">
+                            <button class="btn btn-custom-dark" onclick="document.getElementById('featured-sections').scrollIntoView({behavior: 'smooth'})">
+                                See Featured Scents
+                            </button>
+                            <button class="btn btn-custom-outline d-flex align-items-center justify-content-center gap-2" onclick="startQuiz()">
+                                <span class="material-symbols-outlined">psychology</span>
+                                Find My Vibe
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -241,12 +243,20 @@
         <div class="row gy-5 mb-5">
             <div class="col-lg-4">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="rounded-circle border border-secondary d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">P</div>
+                    <img src="Images/ParadoxLogo.jpg" alt="Paradox Logo" class="rounded-circle border border-secondary" style="width: 40px; height: 40px; object-fit: cover;">
                     <span class="h5 font-serif text-dark-text mb-0">Paradox Manila</span>
                 </div>
                 <p class="text-secondary small mb-4" style="max-width: 300px;">
                     Crafting accessible luxury through scents that inspire, comfort, and define you.
                 </p>
+                <div class="d-flex gap-3">
+                    <a href="http://facebook.com/profile.php?id=100063545048923" target="_blank" class="text-decoration-none">
+                        <img src="Images/FacebookLogo.png" alt="Facebook" style="width: 24px; height: 24px;">
+                    </a>
+                    <a href="https://www.instagram.com/paradox_mnl/" target="_blank" class="text-decoration-none">
+                        <img src="Images/InstagramLogo.png" alt="Instagram" style="width: 24px; height: 24px;">
+                    </a>
+                </div>
             </div>
             <div class="col-lg-2 offset-lg-2">
                 <h4 class="font-serif h6 mb-3 text-dark-text">Shop</h4>

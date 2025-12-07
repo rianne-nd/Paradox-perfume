@@ -19,15 +19,12 @@
 <!-- Navigation -->
 <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
     <div class="container-fluid px-lg-5">
-        <a class="navbar-brand font-serif fw-bold fs-3 text-dark-text" href="index.html">
-            Paradox <span class="fw-normal fst-italic fs-4">Manila</span>
+        <a class="navbar-brand font-serif fw-bold fs-3 text-dark-text d-flex align-items-center gap-2" href="index.html">
+            <img src="Images/ParadoxLogo.jpg" alt="Paradox Logo" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+            <span>Paradox <span class="fw-normal fst-italic fs-4">Manila</span></span>
         </a>
         
         <div class="d-flex align-items-center gap-3 order-lg-3">
-            <!-- Github Save Button -->
-            <button class="btn btn-link text-dark-text p-2 position-relative" onclick="openGithubModal()" title="Save to GitHub">
-                <span class="material-symbols-outlined fs-3">save</span>
-            </button>
             <!-- Cart Button -->
             <button class="btn btn-link text-dark-text p-2 position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer">
                 <span class="material-symbols-outlined fs-3">shopping_bag</span>
@@ -59,14 +56,6 @@
             <div class="text-center mb-5">
                 <h1 class="display-4 font-serif text-dark-text mb-3">How can we help?</h1>
                 <p class="text-secondary">Find answers to your questions about our products, shipping, and more.</p>
-            </div>
-
-            <!-- Search Bar -->
-            <div class="position-relative mx-auto mb-5" style="max-width: 600px;">
-                <span class="position-absolute top-50 start-0 translate-middle-y ms-3 text-muted">
-                    <span class="material-symbols-outlined">search</span>
-                </span>
-                <input type="text" placeholder="Search for Questions" class="form-control form-control-lg rounded-pill ps-5 shadow-sm border-light">
             </div>
 
             <!-- Accordion -->
@@ -127,11 +116,47 @@
                         </div>
                     </div>
                 </div>
+                <div class="accordion-item border-0 border-bottom">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold font-serif text-dark-text p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
+                            What payment methods do you accept?
+                        </button>
+                    </h2>
+                    <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body px-4 pb-4 text-secondary">
+                            We accept GCash, Bank Transfer (BDO/BPI), and Cash on Delivery (COD) for Metro Manila orders via Lalamove/Grab.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0 border-bottom">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold font-serif text-dark-text p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq6">
+                            How should I store my perfume?
+                        </button>
+                    </h2>
+                    <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body px-4 pb-4 text-secondary">
+                            To maintain the quality of your scent, store your bottle in a cool, dark place away from direct sunlight and extreme temperature changes.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item border-0">
+                    <h2 class="accordion-header">
+                        <button class="accordion-button collapsed fw-bold font-serif text-dark-text p-4" type="button" data-bs-toggle="collapse" data-bs-target="#faq7">
+                            Do you offer gift wrapping?
+                        </button>
+                    </h2>
+                    <div id="faq7" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                        <div class="accordion-body px-4 pb-4 text-secondary">
+                            Yes! We offer complimentary gift wrapping for special occasions. Just let us know in your order message.
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="text-center mt-5">
                 <h3 class="h4 font-serif mb-3">Still have questions?</h3>
-                <button class="btn btn-custom-dark">Contact Us</button>
+                <a href="http://facebook.com/profile.php?id=100063545048923" target="_blank" class="btn btn-custom-dark">Contact Us</a>
             </div>
         </div>
     </div>
@@ -144,12 +169,20 @@
         <div class="row gy-5 mb-5">
             <div class="col-lg-4">
                 <div class="d-flex align-items-center gap-3 mb-3">
-                    <div class="rounded-circle border border-secondary d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">P</div>
+                    <img src="Images/ParadoxLogo.jpg" alt="Paradox Logo" class="rounded-circle border border-secondary" style="width: 40px; height: 40px; object-fit: cover;">
                     <span class="h5 font-serif text-dark-text mb-0">Paradox Manila</span>
                 </div>
                 <p class="text-secondary small mb-4" style="max-width: 300px;">
                     Crafting accessible luxury through scents that inspire, comfort, and define you.
                 </p>
+                <div class="d-flex gap-3">
+                    <a href="http://facebook.com/profile.php?id=100063545048923" target="_blank" class="text-decoration-none">
+                        <img src="Images/FacebookLogo.png" alt="Facebook" style="width: 24px; height: 24px;">
+                    </a>
+                    <a href="https://www.instagram.com/paradox_mnl/" target="_blank" class="text-decoration-none">
+                        <img src="Images/InstagramLogo.png" alt="Instagram" style="width: 24px; height: 24px;">
+                    </a>
+                </div>
             </div>
             <div class="col-lg-2 offset-lg-2">
                 <h4 class="font-serif h6 mb-3 text-dark-text">Shop</h4>

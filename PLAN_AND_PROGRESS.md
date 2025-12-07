@@ -20,6 +20,12 @@ This version of the project (`Paradox-perfume - Copy`) has been converted to a p
   - `style.css`: Explained CSS Variables and Transitions.
   - `checkout.html`: Explained Template Literals and Clipboard API logic.
   - `faq.html`: Explained Bootstrap Accordion attributes.
+- **Branding & Content Updates**:
+  - Integrated **Paradox Manila Logo** into the navbar across all pages.
+  - Added **Facebook** and **Instagram** links with logos to the footer.
+  - Updated `index.html` Hero section to match the design of the PHP version.
+  - Enhanced `faq.html`: Removed search bar, added new questions (Payment, Storage, Gift Wrapping), and updated "Contact Us" link.
+  - Removed development tools (GitHub Save button) for a cleaner user experience.
 
 ### Active Features
 1.  **Product Catalog**: `collections.html` displays products with filtering (Floral, Citrus, etc.).
