@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paradox Manila | Collections</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=Lato:wght@300;400;700&amp;display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+    <div class="container-fluid px-lg-5">
+        <!-- Brand Logo -->
+        <a class="navbar-brand font-serif fw-bold fs-3 text-dark-text d-flex align-items-center gap-2" href="index.php">
+            <img src="assets/Images/ParadoxLogo.webp" alt="Paradox Logo" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+            <span>Paradox <span class="fw-normal fst-italic fs-4">Manila</span></span>
+        </a>
+        
+        <div class="d-flex align-items-center gap-3 order-lg-3">
+            <!-- Cart Button -->
+            <button class="btn btn-link text-dark-text p-2 position-relative" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer">
+                <span class="material-symbols-outlined fs-3">shopping_bag</span>
+                <span id="cart-count">0</span>
+            </button>
+            <!-- Mobile Toggle -->
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="material-symbols-outlined fs-2">menu</span>
+            </button>
+        </div>
+
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav gap-4">
+                <li class="nav-item"><a class="nav-link text-gold-accent" href="collections.html">Collections</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.php#about">About Us</a></li>
+                <li class="nav-item"><a class="nav-link" href="faq.html">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link" href="#" onclick="startQuiz(); return false;">Scent Finder</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content Area -->
+<main id="main-content">
+    
+    <!-- COLLECTIONS PAGE VIEW -->
+    <div id="collections-view" class="pt-5 min-vh-100">
+        <section class="py-5 container" id="collections">
+            <div class="text-center mb-5 mt-5">
+                <h2 class="display-4 font-serif mb-3">Full Catalog</h2>
+                <p class="text-secondary">Browse our complete library of scents.</p>
+            </div>
+            <!-- Collection Tabs -->
+            <div class="d-flex flex-wrap justify-content-center gap-2 mb-5" id="collection-tabs">
+                <button class="btn btn-outline-dark tab-btn active" onclick="filterProducts('all')">All Scents</button>
+                <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('floral')">Floral</button>
+                <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('citrus')">Citrus</button>
+                <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('fruity')">Fruity</button>
+                <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('aquatic')">Aquatic</button>
+                <button class="btn btn-outline-secondary tab-btn" onclick="filterProducts('power')">Power</button>
+            </div>
+            <!-- Product Grid -->
+            <div class="row g-4" id="product-grid">
+                <!-- Products injected by JS -->
+            </div>
+        </section>
+    </div>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-light border-top pt-5 pb-4">
+    <div class="container">
+        <div class="row gy-5 mb-5">
+            <div class="col-lg-4">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                    <img src="assets/Images/ParadoxLogo.webp" alt="Paradox Logo" class="rounded-circle border border-secondary" style="width: 40px; height: 40px; object-fit: cover;">
+                    <span class="h5 font-serif text-dark-text mb-0">Paradox Manila</span>
+                </div>
+                <p class="text-secondary small mb-4" style="max-width: 300px;">
+                    Crafting accessible luxury through scents that inspire, comfort, and define you.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="http://facebook.com/profile.php?id=100063545048923" target="_blank" class="text-decoration-none">
+                        <img src="assets/Images/FacebookLogo.webp" alt="Facebook" style="width: 24px; height: 24px;">
+                    </a>
+                    <a href="https://www.instagram.com/paradox_mnl/" target="_blank" class="text-decoration-none">
+                        <img src="assets/Images/InstagramLogo.webp" alt="Instagram" style="width: 24px; height: 24px;">
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-2 offset-lg-2">
+                <h4 class="font-serif h6 mb-3 text-dark-text">Shop</h4>
+                <ul class="list-unstyled small text-secondary">
+                    <li class="mb-2"><a href="collections.html" class="text-decoration-none text-secondary">All Perfumes</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <h4 class="font-serif h6 mb-3 text-dark-text">Company</h4>
+                <ul class="list-unstyled small text-secondary">
+                    <li class="mb-2"><a href="index.php#about" class="text-decoration-none text-secondary">About Us</a></li>
+                    <li class="mb-2"><a href="#" class="text-decoration-none text-secondary">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-2">
+                <h4 class="font-serif h6 mb-3 text-dark-text">Help</h4>
+                <ul class="list-unstyled small text-secondary">
+                    <li class="mb-2"><a href="faq.html" class="text-decoration-none text-secondary">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="border-top pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center small text-muted">
+            <div class="mb-2 mb-md-0">Tondo, Manila</div>
+            <div>&copy; 2025 Paradox MNL. All Rights Reserved.</div>
+        </div>
+    </div>
+</footer>
+
+<!-- Shopping Cart Offcanvas (Bootstrap) -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="cartDrawer" aria-labelledby="cartDrawerLabel">
+    <div class="offcanvas-header border-bottom">
+        <h5 class="offcanvas-title font-serif" id="cartDrawerLabel">Your Bag</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column" id="cart-items">
+        <!-- Cart items go here -->
+        <div class="d-flex flex-column align-items-center justify-content-center h-100 text-muted" id="empty-cart-msg">
+            <span class="material-symbols-outlined fs-1 mb-3">shopping_bag</span>
+            <p>Your bag is empty.</p>
+            <button class="btn btn-link text-dusty-rose fw-bold text-decoration-none" data-bs-dismiss="offcanvas" onclick="window.location.href='collections.html'">Start Shopping</button>
+        </div>
+    </div>
+    <div class="p-3 border-top bg-light">
+        <div class="d-flex justify-content-between align-items-center mb-3 fw-bold">
+            <span>Total</span>
+            <span id="cart-total">₱0.00</span>
+        </div>
+        <button class="btn btn-custom-dark w-100" onclick="window.location.href='checkout.html'">Checkout</button>
+    </div>
+</div>
+
+<!-- Toast Notification (Bootstrap) -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="liveToast" class="toast align-items-center text-bg-dark border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+            <div class="toast-body d-flex align-items-center gap-2">
+                <span class="material-symbols-outlined text-success">check_circle</span>
+                <span id="toast-message">Added to cart</span>
+            </div>
+            <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+    </div>
+</div>
+
+<!-- Scent Finder Modal (Bootstrap) -->
+<div class="modal fade" id="quizModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+            <div class="modal-header border-0">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5" id="quiz-content">
+                <!-- Content injected by JS -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- GitHub Sync Modal (Bootstrap) -->
+<div class="modal fade" id="githubModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content rounded-4 border-0 shadow-lg">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title font-serif d-flex align-items-center gap-2">
+                    <span class="material-symbols-outlined">sync</span> Export to GitHub
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-4">
+                <p class="text-muted small mb-4">Enter your details to create a repository and deploy this site automatically.</p>
+                <div class="vstack gap-3">
+                    <div>
+                        <label class="form-label small fw-bold text-muted text-uppercase">GitHub Username</label>
+                        <input type="text" id="gh-username" class="form-control" placeholder="e.g. johndoe">
+                    </div>
+                    <div>
+                        <label class="form-label small fw-bold text-muted text-uppercase">Repository Name</label>
+                        <input type="text" id="gh-repo" class="form-control" placeholder="e.g. paradox-manila-site">
+                    </div>
+                    <div>
+                        <label class="form-label small fw-bold text-muted text-uppercase">Personal Access Token</label>
+                        <input type="password" id="gh-token" class="form-control" placeholder="ghp_xxxxxxxxxxxx">
+                        <div class="form-text text-xs">Requires 'repo' scope.</div>
+                    </div>
+                    <div id="gh-log" class="d-none bg-light rounded p-2 small font-monospace border" style="max-height: 100px; overflow-y: auto;"></div>
+                    <button onclick="syncToGitHub()" id="gh-sync-btn" class="btn btn-custom-dark w-100 mt-2">
+                        Sync Project
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="assets/script.js"></script>
+</body>
+</html>
