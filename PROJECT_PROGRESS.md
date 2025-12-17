@@ -116,6 +116,27 @@ This document tracks the development progress, features implemented, and structu
   - **Hybrid Logic**: Kept the modern `fetch('api/products.php')` backend connection but used the legacy UI logic for the quiz interface.
   - **Result**: The quiz now looks exactly like the original static version but pulls real product data and stock levels from the MySQL database.
 
+## Recent Updates (December 17-18, 2025)
+
+### 1. WebP Image Conversion
+- **Optimization**: Converted all project images from `.jpg`/`.png` to `.webp` for better performance and faster load times.
+- **Implementation**:
+  - Updated all static image references in `index.php`, `checkout.html`, `collections.html`, `faq.html`, and `assets/script.js`.
+  - Created `fix_db_images.php` to batch update image paths in the MySQL database.
+  - Fixed specific image issues (e.g., "Cool Water" double extension bug).
+
+### 2. Bug Fixes & UI Polish
+- **Navigation**:
+  - Fixed "About Us" links to correctly point to `index.php#about`.
+  - Fixed "Contact Us" button in FAQ to redirect to the Facebook page.
+- **Footer**:
+  - Added missing Facebook and Instagram logo links to the `checkout.html` footer.
+- **Checkout & Cart**:
+  - Updated `checkout.html` and `assets/script.js` to prioritize database image paths over local storage cache, ensuring the new `.webp` images display correctly even for items previously added to the cart.
+
+### 3. Version Control
+- **Repository**: Initialized Git repository and pushed all changes to the `backend-dev` branch on GitHub.
+
 ## Next Steps / To-Do
 - [ ] Implement "Add Product" functionality (if re-requested).
 - [ ] Add date range filtering for the dashboard.
