@@ -16,11 +16,11 @@ CREATE TABLE IF NOT EXISTS products (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
--- Admins Table
-CREATE TABLE IF NOT EXISTS admins (
+-- Users Table (Matches api/login.php)
+CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
-    password_hash VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL, -- Stores the hashed password
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

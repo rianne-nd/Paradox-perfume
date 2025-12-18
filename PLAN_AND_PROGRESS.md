@@ -44,6 +44,10 @@
     - Created `api/` for backend logic.
     - Created `admin/` for the dashboard.
     - Cleaned up the root directory.
+- [x] **Cleanup & Optimization**:
+    - Removed temporary database fix scripts (`fix_*.php`).
+    - Consolidated database schema into `database.sql`.
+    - Removed legacy backup files.
 
 ---
 
@@ -62,12 +66,12 @@ Paradox-perfume/
 │   ├── Images/             # Product Images
 │   ├── script.js           # Frontend Logic (Cart, Checkout)
 │   └── style.css           # Styles
-├── database.sql            # SQL Schema
+├── database.sql            # SQL Schema (Updated with 'users' table)
 ├── index.php               # Main Storefront (Dynamic)
 ├── checkout.html           # Checkout Page
 ├── collections.html        # Static Collections Page (Client-side rendering)
 ├── faq.html                # FAQ Page
-├── setup_products.php      # One-time migration script
+├── setup_products.php      # One-time migration script (WebP ready)
 └── README.md
 ```
 
