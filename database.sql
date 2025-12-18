@@ -1,8 +1,5 @@
 -- Database Schema for Paradox Perfume
 
-CREATE DATABASE IF NOT EXISTS paradox_db;
-USE paradox_db;
-
 -- Products Table
 CREATE TABLE IF NOT EXISTS products (
     id INT AUTO_INCREMENT PRIMARY KEY,

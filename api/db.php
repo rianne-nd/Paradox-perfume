@@ -1,11 +1,11 @@
 <?php
 // api/db.php
 
-$host = 'localhost'; // Standard XAMPP host
-$db   = 'paradox_db';
-$user = 'root';      // Default XAMPP user
-$pass = '';          // Default XAMPP password
-$port = '3307';      // Updated to 3307 based on your phpMyAdmin
+$host = 'sql100.infinityfree.com'; // InfinityFree Host
+$db   = 'if0_40710396_paradox_db'; // InfinityFree Database Name
+$user = 'if0_40710396';            // InfinityFree Username
+$pass = 'YJ46RXJrEyJHisw';         // InfinityFree vPanel Password
+$port = '3306';                    // Standard MySQL port
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;port=$port;dbname=$db;charset=$charset";
