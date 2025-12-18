@@ -1,80 +1,76 @@
 # Paradox Manila
 
-Generated website project. 
+A dynamic e-commerce website for Paradox Manila, featuring a PHP/MySQL backend and a "Messenger-First" checkout experience.
 
-## Deployment
-This project is configured to deploy to GitHub Pages automatically via Actions. check the 'Actions' tab.
+## 🚀 Quick Start Guide
 
-## 
-# Backend Setup Guide for Paradox Perfume
-
-This guide explains how to set up and run the **Backend Version** of the Paradox Perfume website (the one with PHP and MySQL).
-
-## Prerequisites
+### Prerequisites
 1.  **XAMPP** (or any PHP/MySQL environment) installed.
     - Download: [https://www.apachefriends.org/](https://www.apachefriends.org/)
-2.  **Visual Studio Code** (optional, for editing).
 
----
-
-## Step 1: Start the Server
+### Step 1: Start the Server
 1.  Open **XAMPP Control Panel**.
 2.  Click **Start** next to **Apache**.
 3.  Click **Start** next to **MySQL**.
 
----
+### Step 2: Configure Database Connection
+1.  Open `api/db.php`.
+2.  Check the `$port` setting (Line 7).
+    - Default XAMPP port is usually `3306`.
+    - If your MySQL runs on `3307` (or another port), update this value accordingly.
 
-## Step 2: Configure the Database Connection
-The code is currently configured for a specific port (`3307`). Most XAMPP installations use port `3306`.
+### Step 3: Create the Database
+1.  Go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin).
+2.  Create a new database named `paradox_db`.
+3.  Select the database and click **Import**.
+4.  Choose the `database.sql` file from the project root and click **Import**.
 
-1.  Open the file `api/db.php`.
-2.  Check line 7: `$port = '3307';`
-3.  **If your MySQL port in XAMPP is 3306** (the default):
-    - Change it to: `$port = '3306';`
-    - Or simply remove the port configuration if you aren't sure (it usually defaults correctly).
+### Step 4: Initialize Data
+1.  Move the project folder to your server directory (e.g., `C:\xampp\htdocs\Paradox-perfume`).
+2.  Run the setup scripts in your browser:
+    - **Populate Products**: [http://localhost/Paradox-perfume/setup_products.php](http://localhost/Paradox-perfume/setup_products.php)
+    - **Create Admin**: [http://localhost/Paradox-perfume/setup_admin.php](http://localhost/Paradox-perfume/setup_admin.php)
+      - Default Admin: `admin` / `admin123`
 
----
-
-## Step 3: Create the Database
-1.  Open your browser and go to: [http://localhost/phpmyadmin](http://localhost/phpmyadmin)
-2.  Click **New** in the sidebar.
-3.  Enter Database Name: `paradox_db`
-4.  Click **Create**.
-
----
-
-## Step 4: Import the Fixed Schema
-**IMPORTANT:** Do not use the original `database.sql` file, as it has a bug (it creates an `admins` table, but the code looks for a `users` table).
-
-1.  Select the `paradox_db` database you just created.
-2.  Click the **Import** tab at the top.
-3.  Click **Choose File**.
-4.  Select the file: `FIXED_database.sql` (I created this for you in the project folder).
-5.  Click **Import** at the bottom.
+### Step 5: Access the Site
+- **Storefront**: [http://localhost/Paradox-perfume/index.php](http://localhost/Paradox-perfume/index.php)
+- **Admin Panel**: [http://localhost/Paradox-perfume/admin/login.php](http://localhost/Paradox-perfume/admin/login.php)
 
 ---
 
-## Step 5: Populate Data & Create Admin
-Now we need to add the products and create your admin account.
+## 📂 Project Structure
 
-1.  Move the entire `Paradox-perfume` folder into your XAMPP `htdocs` folder.
-    - Usually: `C:\xampp\htdocs\Paradox-perfume`
-2.  Open your browser and run the setup scripts:
-    - **Setup Products**: [http://localhost/Paradox-perfume/setup_products.php](http://localhost/Paradox-perfume/setup_products.php)
-      - You should see a list of "Inserted: ..." messages.
-    - **Setup Admin**: [http://localhost/Paradox-perfume/setup_admin.php](http://localhost/Paradox-perfume/setup_admin.php)
-      - This creates a user: `admin` with password: `admin123`.
+```
+Paradox-perfume/
+├── admin/                  # Admin Dashboard (Login, Orders, Inventory)
+├── api/                    # Backend Logic (DB Connection, API Endpoints)
+├── assets/                 # Static Assets (Images, JS, CSS)
+├── database.sql            # Database Schema
+├── index.php               # Main Storefront
+├── checkout.html           # Checkout Page
+├── collections.html        # Collections Page
+├── faq.html                # FAQ Page
+└── README.md               # This file
+```
 
----
+## 🛠️ Technical Overview
 
-## Step 6: Run the Website
-You are now ready to go!
+### Frontend
+- **HTML5/CSS3**: Custom styling with a luxury aesthetic.
+- **Bootstrap 5**: Responsive grid and components (Modals, Off-canvas).
+- **JavaScript**: Client-side cart logic using `localStorage`.
 
-- **Customer View**: [http://localhost/Paradox-perfume/index.php](http://localhost/Paradox-perfume/index.php)
-- **Admin Login**: [http://localhost/Paradox-perfume/admin/login.php](http://localhost/Paradox-perfume/admin/login.php)
-  - Username: `admin`
-  - Password: `admin123`
+### Backend
+- **PHP**: Server-side rendering and API logic.
+- **MySQL**: Relational database for Products, Users, and Orders.
+- **PDO**: Secure database connections with prepared statements.
 
-## Troubleshooting
-- **"Connection Refused"**: Check your Port in `api/db.php`.
-- **"Table 'users' doesn't exist"**: You likely imported the old `database.sql`. Drop the tables and import `FIXED_database.sql` instead.
+### Key Features
+- **Dynamic Inventory**: Products are fetched from the database.
+- **Stock Management**: Real-time stock checking and deduction.
+- **Messenger Integration**: "Copy & Redirect" checkout flow for personalized service.
+- **Admin Dashboard**: Secure area to view orders and manage stock.
+
+## ⚠️ Important Notes
+- **Security**: The default admin password (`admin123`) is for development only. Change it immediately in a production environment.
+- **Cleanup**: After setting up the project, you should delete `setup_products.php` and `setup_admin.php` to prevent data resets.
