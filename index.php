@@ -1,5 +1,6 @@
 <?php
-require_once 'api/db.php';
+// Use __DIR__ to ensure the path is relative to this file's location
+require_once __DIR__ . '/api/db.php';
 
 // Fetch all active products
 try {
