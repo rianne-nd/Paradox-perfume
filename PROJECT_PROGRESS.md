@@ -137,6 +137,18 @@ This document tracks the development progress, features implemented, and structu
 ### 3. Version Control
 - **Repository**: Initialized Git repository and pushed all changes to the `backend-dev` branch on GitHub.
 
+## Recent Updates (December 20, 2025)
+
+### 1. Production Deployment & Admin Fixes
+- **Deployment**:
+  - Configured `api/db.php` for InfinityFree hosting environment.
+  - Created `production-launch` branch for deployment.
+- **Admin Panel Debugging**:
+  - **Issue**: Admin login was failing with "Table 'admins' doesn't exist" error on production.
+  - **Root Cause**: The production database uses a `users` table for admins, while the code was referencing `admins`. Also, the password column was `password` instead of `password_hash`.
+  - **Fix**: Updated `admin/login.php` and `setup_admin.php` to query the `users` table and use the correct column names.
+  - **Verification**: Confirmed `admin/login.php` logic matches the production schema.
+
 ## Next Steps / To-Do
 - [ ] Implement "Add Product" functionality (if re-requested).
 - [ ] Add date range filtering for the dashboard.
@@ -145,5 +157,5 @@ This document tracks the development progress, features implemented, and structu
 - [ ] Mobile responsiveness testing for Admin Panel.
 
 ## Version Control
-- **Current Branch**: `backend-dev`
+- **Current Branch**: `production-launch`
 - **Repository**: `Paradox-perfume`
