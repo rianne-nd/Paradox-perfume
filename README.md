@@ -1,6 +1,7 @@
 # Paradox Manila
 
 [![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-success?logo=firefox)](https://paradox-manila.rf.gd/index.php)
+[![Admin Panel](https://img.shields.io/badge/Admin%20Panel-Login-blue?logo=lock)](https://paradox-manila.rf.gd/admin/index.php)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
