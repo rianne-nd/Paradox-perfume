@@ -13,12 +13,27 @@ A dynamic e-commerce website for Paradox Manila, featuring a PHP/MySQL backend a
 1.  **XAMPP** (or any PHP/MySQL environment) installed.
     - Download: [https://www.apachefriends.org/](https://www.apachefriends.org/)
 
-### Step 1: Start the Server
+### Step 1: Clone the Repository
+1.  Open your terminal or command prompt (or the terminal in your IDE like VS Code).
+2.  Navigate to your web server's root directory (e.g., `htdocs` for XAMPP).
+    ```bash
+    cd C:\xampp\htdocs
+    ```
+3.  Clone the repository:
+    ```bash
+    git clone -b production-launch https://github.com/rianne-nd/Paradox-perfume.git
+    ```
+4.  Navigate into the project folder:
+    ```bash
+    cd Paradox-perfume
+    ```
+
+### Step 2: Start the Server
 1.  Open **XAMPP Control Panel**.
 2.  Click **Start** next to **Apache**.
 3.  Click **Start** next to **MySQL**.
 
-### Step 2: Configure Database Connection
+### Step 3: Configure Database Connection
 1.  Open `api/db.php`.
 2.  Update the database credentials (`$host`, `$user`, `$pass`, `$db`) to match your local environment (e.g., `localhost`, `root`, empty password).
 3.  **Check the Port**:
@@ -30,20 +45,20 @@ A dynamic e-commerce website for Paradox Manila, featuring a PHP/MySQL backend a
     > $port = '3306'; // Change '3306' to '3307' if needed
     > ```
 
-### Step 3: Create the Database
+### Step 4: Create the Database
 1.  Go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin).
 2.  Create a new database named `paradox_db`.
 3.  Select the database and click **Import**.
 4.  Choose the `database.sql` file from the project root and click **Import**.
 
-### Step 4: Initialize Data
-1.  Move the project folder to your server directory (e.g., `C:\xampp\htdocs\Paradox-perfume`).
+### Step 5: Initialize Data
+1.  Ensure the project folder is in your server directory (e.g., `C:\xampp\htdocs\Paradox-perfume`).
 2.  Run the setup scripts in your browser:
     - **Populate Products**: [http://localhost/Paradox-perfume/setup_products.php](http://localhost/Paradox-perfume/setup_products.php)
     - **Create Admin**: [http://localhost/Paradox-perfume/setup_admin.php](http://localhost/Paradox-perfume/setup_admin.php)
       - Default Admin: `admin` / `admin123`
 
-### Step 5: Access the Site
+### Step 6: Access the Site
 - **Storefront**: [http://localhost/Paradox-perfume/index.php](http://localhost/Paradox-perfume/index.php)
 - **Admin Panel**: [http://localhost/Paradox-perfume/admin/login.php](http://localhost/Paradox-perfume/admin/login.php)
 
