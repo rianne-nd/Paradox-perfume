@@ -2,6 +2,10 @@
 
 A dynamic e-commerce website for Paradox Manila, featuring a PHP/MySQL backend and a "Messenger-First" checkout experience.
 
+## 🌐 Live Demo
+- **Storefront**: [https://paradox-manila.rf.gd/index.php](https://paradox-manila.rf.gd/index.php)
+- **Admin Panel**: [https://paradox-manila.rf.gd/admin/index.php](https://paradox-manila.rf.gd/admin/index.php)
+
 ## 🚀 Quick Start Guide
 
 ### Prerequisites
@@ -50,6 +54,9 @@ Paradox-perfume/
 ├── checkout.html           # Checkout Page
 ├── collections.html        # Collections Page
 ├── faq.html                # FAQ Page
+├── place_order.php         # Order Processing
+├── setup_admin.php         # Admin Setup Script
+├── setup_products.php      # Product Setup Script
 └── README.md               # This file
 ```
 
