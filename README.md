@@ -1,5 +1,9 @@
 # Paradox Manila
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-success?logo=firefox)](https://paradox-manila.rf.gd/index.php)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+
 A dynamic e-commerce website for Paradox Manila, featuring a PHP/MySQL backend and a "Messenger-First" checkout experience.
 
 ## 🌐 Project Links
