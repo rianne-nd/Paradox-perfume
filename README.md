@@ -20,9 +20,15 @@ A dynamic e-commerce website for Paradox Manila, featuring a PHP/MySQL backend a
 
 ### Step 2: Configure Database Connection
 1.  Open `api/db.php`.
-2.  Check the `$port` setting (Line 7).
-    - Default XAMPP port is usually `3306`.
-    - If your MySQL runs on `3307` (or another port), update this value accordingly.
+2.  Update the database credentials (`$host`, `$user`, `$pass`, `$db`) to match your local environment (e.g., `localhost`, `root`, empty password).
+3.  **Check the Port**:
+    > ⚠️ **Warning: Database Port Configuration**
+    > The default configuration uses port `3306`. If your local MySQL installation (e.g., XAMPP) runs on a different port (commonly `3307`), you **MUST** update the `$port` variable in `api/db.php`.
+    >
+    > **Code to change in `api/db.php`:**
+    > ```php
+    > $port = '3306'; // Change '3306' to '3307' if needed
+    > ```
 
 ### Step 3: Create the Database
 1.  Go to [http://localhost/phpmyadmin](http://localhost/phpmyadmin).
