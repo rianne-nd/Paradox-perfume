@@ -2,9 +2,10 @@
 
 A dynamic e-commerce website for Paradox Manila, featuring a PHP/MySQL backend and a "Messenger-First" checkout experience.
 
-## 🌐 Live Demo
+## 🌐 Project Links
 - **Storefront**: [https://paradox-manila.rf.gd/index.php](https://paradox-manila.rf.gd/index.php)
 - **Admin Panel**: [https://paradox-manila.rf.gd/admin/index.php](https://paradox-manila.rf.gd/admin/index.php)
+- **GitHub Repository**: [https://github.com/rianne-nd/Paradox-perfume/tree/production-launch](https://github.com/rianne-nd/Paradox-perfume/tree/production-launch)
 
 ## 🚀 Quick Start Guide
 
